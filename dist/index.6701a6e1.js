@@ -25441,7 +25441,7 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , selectedMovie  } = this.state;
+        const { movies , selectedMovie  } = this.state.movies;
         if (selectedMovie) return(/*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
             movie: selectedMovie,
             __source: {
@@ -25459,38 +25459,35 @@ class MainView extends _reactDefault.default.Component {
             __self: this,
             children: "The list is empty!"
         }));
-        else return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
+        else return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 35
+                lineNumber: 36
             },
             __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                    onClick: ()=>{
-                        alert('Nice');
+            children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
+                movie: selectedMovie,
+                onBackClick: (newSelectedMovie)=>{
+                    this.setSelectedMovie(newSelectedMovie);
+                },
+                __source: {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 38
+                },
+                __self: this
+            }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                    movieData: movie,
+                    onMovieClick: (newSelectedMovie)=>{
+                        this.setSelectedMovie(movie);
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 36
+                        lineNumber: 41
                     },
-                    __self: this,
-                    children: "Click me!"
-                }),
-                movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                        movieData: movie,
-                        onMovieClick: (newSelectedMovie)=>{
-                            this.setSelectedMovie(movie);
-                        },
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 37
-                        },
-                        __self: this
-                    }, movie._id)
-                )
-            ]
+                    __self: this
+                }, movie._id)
+            )
         }));
     }
 }
@@ -25562,7 +25559,7 @@ class MovieView extends ReactComponent {
             className: "movie-view",
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 7
+                lineNumber: 8
             },
             __self: this,
             children: [
@@ -25570,14 +25567,14 @@ class MovieView extends ReactComponent {
                     className: "movie-poster",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 8
+                        lineNumber: 9
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
                         src: movieData.ImagePath,
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 9
+                            lineNumber: 10
                         },
                         __self: this
                     })
@@ -25586,7 +25583,7 @@ class MovieView extends ReactComponent {
                     className: "movie-title",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 11
+                        lineNumber: 12
                     },
                     __self: this,
                     children: [
@@ -25594,7 +25591,7 @@ class MovieView extends ReactComponent {
                             className: "label-title",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 12
+                                lineNumber: 13
                             },
                             __self: this,
                             children: " Title: "
@@ -25603,7 +25600,7 @@ class MovieView extends ReactComponent {
                             className: "value-title",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 13
+                                lineNumber: 14
                             },
                             __self: this,
                             children: movieData.Title
@@ -25614,7 +25611,7 @@ class MovieView extends ReactComponent {
                     className: "movie-description",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 15
+                        lineNumber: 16
                     },
                     __self: this,
                     children: [
@@ -25622,7 +25619,7 @@ class MovieView extends ReactComponent {
                             className: "lable-description",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 16
+                                lineNumber: 17
                             },
                             __self: this,
                             children: "Description:"
@@ -25631,7 +25628,7 @@ class MovieView extends ReactComponent {
                             className: "value-description",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 17
+                                lineNumber: 18
                             },
                             __self: this,
                             children: movieData.Description
@@ -25644,7 +25641,7 @@ class MovieView extends ReactComponent {
                     },
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 19
+                        lineNumber: 20
                     },
                     __self: this,
                     children: "Back"
