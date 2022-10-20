@@ -24,7 +24,7 @@ export class MainView extends React.Component {
 
 
   render() {
-    const { movies, selectedMovie } = this.state.movies;
+    const { movies, selectedMovie } = this.state;
 
     if (selectedMovie) return <MovieView movie={selectedMovie} />
 
