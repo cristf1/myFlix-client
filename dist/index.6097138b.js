@@ -25290,19 +25290,11 @@ class MainView extends _reactDefault.default.Component {
     }
     render() {
         const { movies , selectedMovie  } = this.state;
-        if (selectedMovie) return(/*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-            movieData: selectedMovie,
-            __source: {
-                fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 44
-            },
-            __self: this
-        }));
         if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 46
+                lineNumber: 45
             },
             __self: this,
             children: "The list is empty!"
@@ -25311,17 +25303,17 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 50
+                lineNumber: 48
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-                movie: selectedMovie,
+                movieData: selectedMovie,
                 onBackClick: (newSelectedMovie)=>{
                     this.setSelectedMovie(newSelectedMovie);
                 },
                 __source: {
                     fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 52
+                    lineNumber: 50
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25331,7 +25323,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                        lineNumber: 54
+                        lineNumber: 59
                     },
                     __self: this
                 }, movie._id)
