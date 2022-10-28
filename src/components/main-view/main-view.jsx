@@ -38,7 +38,7 @@ export class MainView extends React.Component {
     axios.get('https://cristine-myflix.herokuapp.com/movies')
       .then(response => {
         this.setState({
-          movies: response className="data"
+          movies: response.data
         });
       })
       .catch(error => {
