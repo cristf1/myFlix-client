@@ -57,7 +57,7 @@ export class MainView extends React.Component {
     const { movies, selectedMovie } = this.state;
 
     if (movies.length === 0)
-      return <div className='main-view'>The list is empty!</div>;
+      return <div className='main-view' />;
     else {
       return (
         <div className='main-view'>

@@ -25291,8 +25291,7 @@ class MainView extends _reactDefault.default.Component {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
                 lineNumber: 60
             },
-            __self: this,
-            children: "The list is empty!"
+            __self: this
         }));
         else return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
