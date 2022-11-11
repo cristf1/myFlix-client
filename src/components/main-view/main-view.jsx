@@ -1,7 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from "../registration-view/registration-view";
+
 {/*import images from '../images';*/ }
 
 
@@ -30,33 +34,36 @@ export class MainView extends React.Component {
           ImagePath: './images/Harry Potter 2',
         }*/}
       ],
-      selectedMovie: null
+      selectedMovie: null,
+      user: null
     }
   }
 
-  componentDidMount() {
-    axios.get('https://cristine-myflix.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
 
 
 
   setSelectedMovie(newSelectedMovie) {
     this.setState({
-      selectedMovie: newSelectedMovie
+      selectedMovie: movieData
     });
   }
 
+  onLoggedIn(user) {
+    this.setState({
+      user
+    });
+  }
+
+  onRegistration(user) {
+    this.setState({
+      user
+    });
+  }
 
   render() {
     const { movies, selectedMovie } = this.state;
+
+    if (!user) return <LoginView on LoggedIn={user => this.onLoggedIn(user)} />;
 
     if (movies.length === 0)
       return <div className='main-view' />;
@@ -86,4 +93,17 @@ export class MainView extends React.Component {
       );
     }
   }
+
+  componentDidMount() {
+    axios.get('https://cristine-myflix.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
 }
