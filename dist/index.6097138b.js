@@ -970,11 +970,11 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./components/main-view/main-view":"jyTDD","./index.scss":"jYZWO","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX"}],"8xIwr":[function(require,module,exports) {
+},{"react/jsx-runtime":"lxEy4","react":"gXKCL","react-dom":"1erm1","./components/main-view/main-view":"jyTDD","./index.scss":"jYZWO","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX"}],"lxEy4":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
-},{"./cjs/react-jsx-runtime.development.js":"hw7vv"}],"hw7vv":[function(require,module,exports) {
+},{"./cjs/react-jsx-runtime.development.js":"5OGnS"}],"5OGnS":[function(require,module,exports) {
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -1828,11 +1828,11 @@ module.exports = require('./cjs/react-jsx-runtime.development.js');
     exports.jsxs = jsxs;
 })();
 
-},{"react":"6TuXu"}],"6TuXu":[function(require,module,exports) {
+},{"react":"gXKCL"}],"gXKCL":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react.development.js');
 
-},{"./cjs/react.development.js":"9WG5J"}],"9WG5J":[function(require,module,exports) {
+},{"./cjs/react.development.js":"IoL3z"}],"IoL3z":[function(require,module,exports) {
 /**
  * @license React
  * react.development.js
@@ -3717,7 +3717,7 @@ module.exports = require('./cjs/react.development.js');
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === 'function') __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{}],"gkWJK":[function(require,module,exports) {
+},{}],"1erm1":[function(require,module,exports) {
 'use strict';
 function checkDCE() {
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function') return;
@@ -3733,7 +3733,7 @@ function checkDCE() {
 }
 module.exports = require('./cjs/react-dom.development.js');
 
-},{"./cjs/react-dom.development.js":"uMwNA"}],"uMwNA":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"2bfqu"}],"2bfqu":[function(require,module,exports) {
 /**
  * @license React
  * react-dom.development.js
@@ -24780,11 +24780,11 @@ module.exports = require('./cjs/react-dom.development.js');
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === 'function') __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{"react":"6TuXu","scheduler":"lS3J3"}],"lS3J3":[function(require,module,exports) {
+},{"react":"gXKCL","scheduler":"kUwrV"}],"kUwrV":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/scheduler.development.js');
 
-},{"./cjs/scheduler.development.js":"9ljDM"}],"9ljDM":[function(require,module,exports) {
+},{"./cjs/scheduler.development.js":"blOfD"}],"blOfD":[function(require,module,exports) {
 /**
  * @license React
  * scheduler.development.js
@@ -25274,7 +25274,7 @@ class MainView extends _reactDefault.default.Component {
     }
     setSelectedMovie(newSelectedMovie) {
         this.setState({
-            selectedMovie: movieData
+            selectedMovie: newSelectedMovie
         });
     }
     onLoggedIn(user) {
@@ -25282,20 +25282,28 @@ class MainView extends _reactDefault.default.Component {
             user
         });
     }
-    onRegistration(user) {
+    onRegistration(register) {
         this.setState({
-            user
+            register
         });
     }
     render() {
-        const { movies , selectedMovie  } = this.state;
-        if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-            on: true,
-            LoggedIn: (user)=>this.onLoggedIn(user)
+        const { movies , selectedMovie , user , register  } = this.state;
+        if (!register) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
+            onRegistration: (register1)=>this.onRegistration(register1)
             ,
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 66
+                lineNumber: 67
+            },
+            __self: this
+        }));
+        if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+            onLoggedIn: (user1)=>this.onLoggedIn(user1)
+            ,
+            __source: {
+                fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
+                lineNumber: 68
             },
             __self: this
         }));
@@ -25303,7 +25311,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 69
+                lineNumber: 71
             },
             __self: this
         }));
@@ -25311,7 +25319,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 72
+                lineNumber: 74
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25321,7 +25329,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 74
+                    lineNumber: 76
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25331,7 +25339,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                        lineNumber: 83
+                        lineNumber: 85
                     },
                     __self: this
                 }, movie._id)
@@ -25354,7 +25362,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","../movie-card/movie-card":"WdUH5","../movie-view/movie-view":"gmdDy","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX","../login-view/login-view":"fMETw","../registration-view/registration-view":"gUqUJ"}],"iYoWk":[function(require,module,exports) {
+},{"react/jsx-runtime":"lxEy4","react":"gXKCL","axios":"9ShL2","../movie-card/movie-card":"WdUH5","../movie-view/movie-view":"gmdDy","../login-view/login-view":"fMETw","../registration-view/registration-view":"gUqUJ","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX"}],"9ShL2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Axios", ()=>Axios
@@ -25386,7 +25394,7 @@ var _axiosJsDefault = parcelHelpers.interopDefault(_axiosJs);
 const { Axios , AxiosError , CanceledError , isCancel , CancelToken , VERSION , all , Cancel , isAxiosError , spread , toFormData  } = _axiosJsDefault.default;
 exports.default = _axiosJsDefault.default;
 
-},{"./lib/axios.js":"3QmO2","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"3QmO2":[function(require,module,exports) {
+},{"./lib/axios.js":"fhsTp","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"fhsTp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./utils.js");
@@ -25466,7 +25474,7 @@ axios.formToJSON = (thing)=>{
 };
 exports.default = axios;
 
-},{"./utils.js":"hOPY0","./helpers/bind.js":"4bHkG","./core/Axios.js":"KVzea","./core/mergeConfig.js":"8vb7m","./defaults/index.js":"iR3Q7","./helpers/formDataToJSON.js":"eEUTl","./cancel/CanceledError.js":"ksfYH","./cancel/CancelToken.js":"6kJtU","./cancel/isCancel.js":"6KzET","./env/data.js":"7dluA","./helpers/toFormData.js":"lRsq7","./core/AxiosError.js":"jOgJs","./helpers/spread.js":"3fmMu","./helpers/isAxiosError.js":"1NqDP","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"hOPY0":[function(require,module,exports) {
+},{"./utils.js":"ixOgU","./helpers/bind.js":"8Ubt3","./core/Axios.js":"a6dci","./core/mergeConfig.js":"jtFs7","./defaults/index.js":"6ydyl","./helpers/formDataToJSON.js":"91aVn","./cancel/CanceledError.js":"4VF5s","./cancel/CancelToken.js":"3t3du","./cancel/isCancel.js":"9bcMB","./env/data.js":"74zgX","./helpers/toFormData.js":"32Bam","./core/AxiosError.js":"akZrQ","./helpers/spread.js":"6NnLU","./helpers/isAxiosError.js":"j3SCY","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"ixOgU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _bindJs = require("./helpers/bind.js");
@@ -25956,7 +25964,7 @@ exports.default = {
     toFiniteNumber
 };
 
-},{"./helpers/bind.js":"4bHkG","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"4bHkG":[function(require,module,exports) {
+},{"./helpers/bind.js":"8Ubt3","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"8Ubt3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
@@ -25999,7 +26007,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"KVzea":[function(require,module,exports) {
+},{}],"a6dci":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -26173,7 +26181,7 @@ _utilsJsDefault.default.forEach([
 });
 exports.default = Axios;
 
-},{"./../utils.js":"hOPY0","../helpers/buildURL.js":"3Jodf","./InterceptorManager.js":"9kkIC","./dispatchRequest.js":"dmFav","./mergeConfig.js":"8vb7m","./buildFullPath.js":"1RLcm","../helpers/validator.js":"4sigL","./AxiosHeaders.js":"fnBtC","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"3Jodf":[function(require,module,exports) {
+},{"./../utils.js":"ixOgU","../helpers/buildURL.js":"h409d","./InterceptorManager.js":"ka5RZ","./dispatchRequest.js":"6PKgD","./mergeConfig.js":"jtFs7","./buildFullPath.js":"kcxeM","../helpers/validator.js":"5ZDfr","./AxiosHeaders.js":"5BLf9","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"h409d":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -26207,7 +26215,7 @@ function buildURL(url, params, options) {
 }
 exports.default = buildURL;
 
-},{"../utils.js":"hOPY0","../helpers/AxiosURLSearchParams.js":"kgMoW","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"kgMoW":[function(require,module,exports) {
+},{"../utils.js":"ixOgU","../helpers/AxiosURLSearchParams.js":"iMGwB","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"iMGwB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _toFormDataJs = require("./toFormData.js");
@@ -26262,7 +26270,7 @@ prototype.toString = function toString(encoder) {
 };
 exports.default = AxiosURLSearchParams;
 
-},{"./toFormData.js":"lRsq7","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"lRsq7":[function(require,module,exports) {
+},{"./toFormData.js":"32Bam","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"32Bam":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -26436,7 +26444,7 @@ const predicates = _utilsJsDefault.default.toFlatObject(_utilsJsDefault.default,
 }
 exports.default = toFormData;
 
-},{"buffer":"2UZOc","../utils.js":"hOPY0","../core/AxiosError.js":"jOgJs","../env/classes/FormData.js":"6eXeM","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"2UZOc":[function(require,module,exports) {
+},{"buffer":"2UZOc","../utils.js":"ixOgU","../core/AxiosError.js":"akZrQ","../env/classes/FormData.js":"fTJBg","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"2UZOc":[function(require,module,exports) {
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -27835,7 +27843,7 @@ exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
     buffer[offset + i - d] |= s * 128;
 };
 
-},{}],"jOgJs":[function(require,module,exports) {
+},{}],"akZrQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -27924,17 +27932,17 @@ AxiosError.from = (error, code, config, request, response, customProps)=>{
 };
 exports.default = AxiosError;
 
-},{"../utils.js":"hOPY0","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"6eXeM":[function(require,module,exports) {
+},{"../utils.js":"ixOgU","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"fTJBg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _formData = require("form-data");
 var _formDataDefault = parcelHelpers.interopDefault(_formData);
 exports.default = _formDataDefault.default;
 
-},{"form-data":"3EyDk","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"3EyDk":[function(require,module,exports) {
+},{"form-data":"gdyvl","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"gdyvl":[function(require,module,exports) {
 /* eslint-env browser */ module.exports = typeof self == 'object' ? self.FormData : window.FormData;
 
-},{}],"9kkIC":[function(require,module,exports) {
+},{}],"ka5RZ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -27993,7 +28001,7 @@ class InterceptorManager {
 }
 exports.default = InterceptorManager;
 
-},{"./../utils.js":"hOPY0","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"dmFav":[function(require,module,exports) {
+},{"./../utils.js":"ixOgU","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"6PKgD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _transformDataJs = require("./transformData.js");
@@ -28043,7 +28051,7 @@ function dispatchRequest(config) {
 }
 exports.default = dispatchRequest;
 
-},{"./transformData.js":"57wgh","../cancel/isCancel.js":"6KzET","../defaults/index.js":"iR3Q7","../cancel/CanceledError.js":"ksfYH","../core/AxiosHeaders.js":"fnBtC","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"57wgh":[function(require,module,exports) {
+},{"./transformData.js":"3cwQf","../cancel/isCancel.js":"9bcMB","../defaults/index.js":"6ydyl","../cancel/CanceledError.js":"4VF5s","../core/AxiosHeaders.js":"5BLf9","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"3cwQf":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -28066,7 +28074,7 @@ function transformData(fns, response) {
 }
 exports.default = transformData;
 
-},{"./../utils.js":"hOPY0","../defaults/index.js":"iR3Q7","../core/AxiosHeaders.js":"fnBtC","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"iR3Q7":[function(require,module,exports) {
+},{"./../utils.js":"ixOgU","../defaults/index.js":"6ydyl","../core/AxiosHeaders.js":"5BLf9","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"6ydyl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -28216,7 +28224,7 @@ _utilsJsDefault.default.forEach([
 });
 exports.default = defaults;
 
-},{"process":"j917p","../utils.js":"hOPY0","../core/AxiosError.js":"jOgJs","./transitional.js":"3REd2","../helpers/toFormData.js":"lRsq7","../helpers/toURLEncodedForm.js":"4bbMP","../platform/index.js":"cVQQ9","../helpers/formDataToJSON.js":"eEUTl","../adapters/index.js":"eMKgu","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"j917p":[function(require,module,exports) {
+},{"process":"j917p","../utils.js":"ixOgU","../core/AxiosError.js":"akZrQ","./transitional.js":"5nYSq","../helpers/toFormData.js":"32Bam","../helpers/toURLEncodedForm.js":"hhneG","../platform/index.js":"jWdzO","../helpers/formDataToJSON.js":"91aVn","../adapters/index.js":"dZUnE","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"j917p":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {
 };
@@ -28365,7 +28373,7 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"3REd2":[function(require,module,exports) {
+},{}],"5nYSq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
@@ -28375,7 +28383,7 @@ exports.default = {
     clarifyTimeoutError: false
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"4bbMP":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"hhneG":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -28398,7 +28406,7 @@ function toURLEncodedForm(data, options) {
 }
 exports.default = toURLEncodedForm;
 
-},{"../utils.js":"hOPY0","./toFormData.js":"lRsq7","../platform/index.js":"cVQQ9","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"cVQQ9":[function(require,module,exports) {
+},{"../utils.js":"ixOgU","./toFormData.js":"32Bam","../platform/index.js":"jWdzO","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"jWdzO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>_indexJsDefault.default
@@ -28406,7 +28414,7 @@ parcelHelpers.export(exports, "default", ()=>_indexJsDefault.default
 var _indexJs = require("./node/index.js");
 var _indexJsDefault = parcelHelpers.interopDefault(_indexJs);
 
-},{"./node/index.js":"3PFEz","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"3PFEz":[function(require,module,exports) {
+},{"./node/index.js":"cnuO0","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"cnuO0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _urlsearchParamsJs = require("./classes/URLSearchParams.js");
@@ -28452,7 +28460,7 @@ exports.default = {
     ]
 };
 
-},{"./classes/URLSearchParams.js":"6ZHs4","./classes/FormData.js":"iE912","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"6ZHs4":[function(require,module,exports) {
+},{"./classes/URLSearchParams.js":"6pjNv","./classes/FormData.js":"kkEQX","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"6pjNv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axiosURLSearchParamsJs = require("../../../helpers/AxiosURLSearchParams.js");
@@ -28460,13 +28468,13 @@ var _axiosURLSearchParamsJsDefault = parcelHelpers.interopDefault(_axiosURLSearc
 'use strict';
 exports.default = typeof URLSearchParams !== 'undefined' ? URLSearchParams : _axiosURLSearchParamsJsDefault.default;
 
-},{"../../../helpers/AxiosURLSearchParams.js":"kgMoW","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"iE912":[function(require,module,exports) {
+},{"../../../helpers/AxiosURLSearchParams.js":"iMGwB","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"kkEQX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
 exports.default = FormData;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"eEUTl":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"91aVn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -28543,7 +28551,7 @@ var _utilsJsDefault = parcelHelpers.interopDefault(_utilsJs);
 }
 exports.default = formDataToJSON;
 
-},{"../utils.js":"hOPY0","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"eMKgu":[function(require,module,exports) {
+},{"../utils.js":"ixOgU","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"dZUnE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -28569,7 +28577,7 @@ exports.default = {
     adapters
 };
 
-},{"../utils.js":"hOPY0","./http.js":"4uZQD","./xhr.js":"4uZQD","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"4uZQD":[function(require,module,exports) {
+},{"../utils.js":"ixOgU","./http.js":"calgB","./xhr.js":"calgB","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"calgB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -28749,7 +28757,7 @@ function xhrAdapter(config) {
 }
 exports.default = xhrAdapter;
 
-},{"./../utils.js":"hOPY0","./../core/settle.js":"ehRY8","./../helpers/cookies.js":"dRE5q","./../helpers/buildURL.js":"3Jodf","../core/buildFullPath.js":"1RLcm","./../helpers/isURLSameOrigin.js":"2SCwc","../defaults/transitional.js":"3REd2","../core/AxiosError.js":"jOgJs","../cancel/CanceledError.js":"ksfYH","../helpers/parseProtocol.js":"dEjOp","../platform/index.js":"cVQQ9","../core/AxiosHeaders.js":"fnBtC","../helpers/speedometer.js":"8JTAL","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"ehRY8":[function(require,module,exports) {
+},{"./../utils.js":"ixOgU","./../core/settle.js":"gxsYn","./../helpers/cookies.js":"4I1u5","./../helpers/buildURL.js":"h409d","../core/buildFullPath.js":"kcxeM","./../helpers/isURLSameOrigin.js":"eHuh1","../defaults/transitional.js":"5nYSq","../core/AxiosError.js":"akZrQ","../cancel/CanceledError.js":"4VF5s","../helpers/parseProtocol.js":"7ic30","../platform/index.js":"jWdzO","../core/AxiosHeaders.js":"5BLf9","../helpers/speedometer.js":"awlXP","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"gxsYn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axiosErrorJs = require("./AxiosError.js");
@@ -28765,7 +28773,7 @@ function settle(resolve, reject, response) {
 }
 exports.default = settle;
 
-},{"./AxiosError.js":"jOgJs","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"dRE5q":[function(require,module,exports) {
+},{"./AxiosError.js":"akZrQ","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"4I1u5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -28806,7 +28814,7 @@ exports.default = _indexJsDefault.default.isStandardBrowserEnv ? // Standard bro
     };
 })();
 
-},{"./../utils.js":"hOPY0","../platform/index.js":"cVQQ9","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"1RLcm":[function(require,module,exports) {
+},{"./../utils.js":"ixOgU","../platform/index.js":"jWdzO","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"kcxeM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _isAbsoluteURLJs = require("../helpers/isAbsoluteURL.js");
@@ -28820,7 +28828,7 @@ function buildFullPath(baseURL, requestedURL) {
 }
 exports.default = buildFullPath;
 
-},{"../helpers/isAbsoluteURL.js":"8E1N1","../helpers/combineURLs.js":"e9OEH","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"8E1N1":[function(require,module,exports) {
+},{"../helpers/isAbsoluteURL.js":"dapyx","../helpers/combineURLs.js":"2e5Sk","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"dapyx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
@@ -28832,7 +28840,7 @@ function isAbsoluteURL(url) {
 }
 exports.default = isAbsoluteURL;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"e9OEH":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"2e5Sk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
@@ -28841,7 +28849,7 @@ function combineURLs(baseURL, relativeURL) {
 }
 exports.default = combineURLs;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"2SCwc":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"eHuh1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -28897,7 +28905,7 @@ exports.default = _indexJsDefault.default.isStandardBrowserEnv ? // Standard bro
     };
 })();
 
-},{"./../utils.js":"hOPY0","../platform/index.js":"cVQQ9","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"ksfYH":[function(require,module,exports) {
+},{"./../utils.js":"ixOgU","../platform/index.js":"jWdzO","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"4VF5s":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axiosErrorJs = require("../core/AxiosError.js");
@@ -28923,7 +28931,7 @@ _utilsJsDefault.default.inherits(CanceledError, _axiosErrorJsDefault.default, {
 });
 exports.default = CanceledError;
 
-},{"../core/AxiosError.js":"jOgJs","../utils.js":"hOPY0","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"dEjOp":[function(require,module,exports) {
+},{"../core/AxiosError.js":"akZrQ","../utils.js":"ixOgU","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"7ic30":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
@@ -28933,7 +28941,7 @@ function parseProtocol(url) {
 }
 exports.default = parseProtocol;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"fnBtC":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"5BLf9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -29117,7 +29125,7 @@ _utilsJsDefault.default.freezeMethods(AxiosHeaders.prototype);
 _utilsJsDefault.default.freezeMethods(AxiosHeaders);
 exports.default = AxiosHeaders;
 
-},{"../utils.js":"hOPY0","../helpers/parseHeaders.js":"9TT83","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"9TT83":[function(require,module,exports) {
+},{"../utils.js":"ixOgU","../helpers/parseHeaders.js":"eGFka","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"eGFka":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -29165,7 +29173,7 @@ exports.default = (rawHeaders)=>{
     return parsed;
 };
 
-},{"./../utils.js":"hOPY0","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"8JTAL":[function(require,module,exports) {
+},{"./../utils.js":"ixOgU","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"awlXP":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
@@ -29203,7 +29211,7 @@ parcelHelpers.defineInteropFlag(exports);
 }
 exports.default = speedometer;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"6KzET":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"9bcMB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
@@ -29212,7 +29220,7 @@ function isCancel(value) {
 }
 exports.default = isCancel;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"8vb7m":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"jtFs7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("../utils.js");
@@ -29288,7 +29296,7 @@ function mergeConfig(config1, config2) {
 }
 exports.default = mergeConfig;
 
-},{"../utils.js":"hOPY0","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"4sigL":[function(require,module,exports) {
+},{"../utils.js":"ixOgU","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"5ZDfr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _dataJs = require("../env/data.js");
@@ -29364,14 +29372,14 @@ exports.default = {
     validators
 };
 
-},{"../env/data.js":"7dluA","../core/AxiosError.js":"jOgJs","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"7dluA":[function(require,module,exports) {
+},{"../env/data.js":"74zgX","../core/AxiosError.js":"akZrQ","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"74zgX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "VERSION", ()=>VERSION
 );
 const VERSION = "1.1.3";
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"6kJtU":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"3t3du":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _canceledErrorJs = require("./CanceledError.js");
@@ -29458,7 +29466,7 @@ var _canceledErrorJsDefault = parcelHelpers.interopDefault(_canceledErrorJs);
 }
 exports.default = CancelToken;
 
-},{"./CanceledError.js":"ksfYH","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"3fmMu":[function(require,module,exports) {
+},{"./CanceledError.js":"4VF5s","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"6NnLU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 'use strict';
@@ -29469,7 +29477,7 @@ function spread(callback) {
 }
 exports.default = spread;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"1NqDP":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"j3SCY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _utilsJs = require("./../utils.js");
@@ -29480,7 +29488,7 @@ function isAxiosError(payload) {
 }
 exports.default = isAxiosError;
 
-},{"./../utils.js":"hOPY0","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"WdUH5":[function(require,module,exports) {
+},{"./../utils.js":"ixOgU","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih"}],"WdUH5":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$87bf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29494,6 +29502,8 @@ parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movieData , onMovieClick  } = this.props;
@@ -29504,7 +29514,7 @@ class MovieCard extends _reactDefault.default.Component {
             },
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 5
+                lineNumber: 7
             },
             __self: this,
             children: [
@@ -29515,13 +29525,29 @@ class MovieCard extends _reactDefault.default.Component {
         }));
     }
 }
+MovieCard.propTypes = {
+    movie: _propTypesDefault.default.shape({
+        Title: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired,
+        Genre: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Description: _propTypesDefault.default.string.isRequired
+        }),
+        Director: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Bio: _propTypesDefault.default.string.isRequired,
+            Birth: _propTypesDefault.default.number.isRequired
+        })
+    }).isRequired,
+    onMovieClick: _propTypesDefault.default.func.isRequired
+};
 
   $parcel$ReactRefreshHelpers$87bf.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX"}],"eG3eX":[function(require,module,exports) {
+},{"react/jsx-runtime":"lxEy4","react":"gXKCL","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX","prop-types":"gfhrc"}],"eG3eX":[function(require,module,exports) {
 "use strict";
 var Refresh = require('react-refresh/runtime');
 function debounce(func, delay) {
@@ -29641,382 +29667,18 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"cmsUv"}],"gmdDy":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$73f0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$73f0.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieView", ()=>MovieView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-class MovieView extends _reactDefault.default.Component {
-    keypressCallback(event) {
-        console.log(event.key);
-    }
-    componentDidMount() {
-        document.addEventListener('keypress', (event)=>{
-            console.log(event.key);
-        });
-    }
-    render() {
-        const { movieData , onBackClick  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
-            className: "movie-view",
-            __source: {
-                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 22
-            },
-            __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                    className: "movie-poster",
-                    __source: {
-                        fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                        lineNumber: 23
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                        src: movieData.ImagePath,
-                        __source: {
-                            fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                            lineNumber: 24
-                        },
-                        __self: this
-                    })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-title",
-                    __source: {
-                        fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                        lineNumber: 26
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "label-title",
-                            __source: {
-                                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                                lineNumber: 27
-                            },
-                            __self: this,
-                            children: " Title: "
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "value-title",
-                            __source: {
-                                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                                lineNumber: 28
-                            },
-                            __self: this,
-                            children: movieData.Title
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                    className: "movie-description",
-                    __source: {
-                        fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                        lineNumber: 30
-                    },
-                    __self: this,
-                    children: [
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "lable-description",
-                            __source: {
-                                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                                lineNumber: 31
-                            },
-                            __self: this,
-                            children: "Description:"
-                        }),
-                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                            className: "value-description",
-                            __source: {
-                                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                                lineNumber: 32
-                            },
-                            __self: this,
-                            children: movieData.Description
-                        })
-                    ]
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                    onClick: ()=>{
-                        onBackClick(null);
-                    },
-                    __source: {
-                        fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
-                        lineNumber: 34
-                    },
-                    __self: this,
-                    children: "Back"
-                })
-            ]
-        }));
-    }
-}
-
-  $parcel$ReactRefreshHelpers$73f0.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX"}],"fMETw":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$871e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$871e.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "LoginView", ()=>LoginView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-function LoginView(props) {
-    _s();
-    const [username, setUsername] = _react.useState('');
-    const [password, setPassword] = _react.useState('');
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        console.log(username, password);
-    /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ // props.onLoggedIn(username);
-    };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
-        __source: {
-            fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-            lineNumber: 16
-        },
-        __self: this,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-                    lineNumber: 17
-                },
-                __self: this,
-                children: [
-                    "Username:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setUsername(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-                            lineNumber: 19
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-                    lineNumber: 21
-                },
-                __self: this,
-                children: [
-                    "Password:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "password",
-                        value: password,
-                        onChange: (e)=>setPassword(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-                            lineNumber: 23
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                type: "submit",
-                onClick: handleSubmit,
-                __source: {
-                    fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
-                    lineNumber: 25
-                },
-                __self: this,
-                children: "Submit"
-            })
-        ]
-    }));
-}
-_s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
-_c = LoginView;
-var _c;
-$RefreshReg$(_c, "LoginView");
-
-  $parcel$ReactRefreshHelpers$871e.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX"}],"gUqUJ":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$529f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$529f.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _s = $RefreshSig$();
-function RegistrationView(props) {
-    _s();
-    const [username, setUsername] = _react.useState('');
-    const [password, setPassword] = _react.useState('');
-    const [email, setEmail] = _react.useState('');
-    const [birthday, setBirthday] = _react.useState('');
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        console.log(username, password, email, birthday);
-        props.onRegistration(username);
-    };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
-        __source: {
-            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 17
-        },
-        __self: this,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                    lineNumber: 18
-                },
-                __self: this,
-                children: [
-                    "Username:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setUsername(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 20
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                    lineNumber: 22
-                },
-                __self: this,
-                children: [
-                    "Password:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setPassword(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 24
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                    lineNumber: 26
-                },
-                __self: this,
-                children: [
-                    "Email:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setEmail(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 28
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                    lineNumber: 30
-                },
-                __self: this,
-                children: [
-                    "Birthday:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setBirthday(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 32
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                type: "submit",
-                onClick: handleSubmit,
-                __source: {
-                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
-                    lineNumber: 34
-                },
-                __self: this,
-                children: "Submit"
-            })
-        ]
-    }));
-}
-_s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
-_c = RegistrationView;
-var _c;
-$RefreshReg$(_c, "RegistrationView");
-
-  $parcel$ReactRefreshHelpers$529f.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX"}],"1tgq3":[function(require,module,exports) {
+},{"react-refresh/runtime":"cmsUv"}],"gfhrc":[function(require,module,exports) {
 var ReactIs = require('react-is');
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
 var throwOnDirectAccess = true;
 module.exports = require('./factoryWithTypeCheckers')(ReactIs.isElement, throwOnDirectAccess);
 
-},{"react-is":"5wFcP","./factoryWithTypeCheckers":"gMSjX"}],"5wFcP":[function(require,module,exports) {
+},{"react-is":"2ZMBd","./factoryWithTypeCheckers":"bHuCb"}],"2ZMBd":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-is.development.js');
 
-},{"./cjs/react-is.development.js":"dxS2U"}],"dxS2U":[function(require,module,exports) {
+},{"./cjs/react-is.development.js":"43Hyn"}],"43Hyn":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -30171,7 +29833,7 @@ module.exports = require('./cjs/react-is.development.js');
     exports.typeOf = typeOf;
 })();
 
-},{}],"gMSjX":[function(require,module,exports) {
+},{}],"bHuCb":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -30614,7 +30276,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return ReactPropTypes;
 };
 
-},{"react-is":"5wFcP","object-assign":"jzTFF","./lib/ReactPropTypesSecret":"lYuBM","./lib/has":"9e9z2","./checkPropTypes":"3evPV"}],"jzTFF":[function(require,module,exports) {
+},{"react-is":"2ZMBd","object-assign":"cFHuT","./lib/ReactPropTypesSecret":"imGhZ","./lib/has":"fJoQa","./checkPropTypes":"5VLKa"}],"cFHuT":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -30672,7 +30334,7 @@ module.exports = shouldUseNative() ? Object.assign : function(target, source) {
     return to;
 };
 
-},{}],"lYuBM":[function(require,module,exports) {
+},{}],"imGhZ":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -30682,10 +30344,10 @@ module.exports = shouldUseNative() ? Object.assign : function(target, source) {
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
-},{}],"9e9z2":[function(require,module,exports) {
+},{}],"fJoQa":[function(require,module,exports) {
 module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 
-},{}],"3evPV":[function(require,module,exports) {
+},{}],"5VLKa":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -30757,6 +30419,405 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":"lYuBM","./lib/has":"9e9z2"}],"jYZWO":[function() {},{}]},["eYWtN","fsYId","aylhM"], "aylhM", "parcelRequire92ae")
+},{"./lib/ReactPropTypesSecret":"imGhZ","./lib/has":"fJoQa"}],"gmdDy":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$73f0 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$73f0.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+class MovieView extends _reactDefault.default.Component {
+    keypressCallback(event) {
+        console.log(event.key);
+    }
+    componentDidMount() {
+        document.addEventListener('keypress', (event)=>{
+            console.log(event.key);
+        });
+    }
+    render() {
+        const { movieData , onBackClick  } = this.props;
+        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
+            className: "movie-view",
+            __source: {
+                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                lineNumber: 23
+            },
+            __self: this,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                    className: "movie-poster",
+                    __source: {
+                        fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                        lineNumber: 24
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
+                        src: movieData.ImagePath,
+                        __source: {
+                            fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                            lineNumber: 25
+                        },
+                        __self: this
+                    })
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "movie-title",
+                    __source: {
+                        fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                        lineNumber: 27
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "label-title",
+                            __source: {
+                                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                                lineNumber: 28
+                            },
+                            __self: this,
+                            children: " Title: "
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value-title",
+                            __source: {
+                                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                                lineNumber: 29
+                            },
+                            __self: this,
+                            children: movieData.Title
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                    className: "movie-description",
+                    __source: {
+                        fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                        lineNumber: 31
+                    },
+                    __self: this,
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "lable-description",
+                            __source: {
+                                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                                lineNumber: 32
+                            },
+                            __self: this,
+                            children: "Description:"
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                            className: "value-description",
+                            __source: {
+                                fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                                lineNumber: 33
+                            },
+                            __self: this,
+                            children: movieData.Description
+                        })
+                    ]
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                    onClick: ()=>{
+                        onBackClick(null);
+                    },
+                    __source: {
+                        fileName: "careerfoundry/myFlix-client/src/components/movie-view/movie-view.jsx",
+                        lineNumber: 35
+                    },
+                    __self: this,
+                    children: "Back"
+                })
+            ]
+        }));
+    }
+}
+MovieView.propTypes = {
+    movie: _propTypesDefault.default.shape({
+        Title: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired,
+        Genre: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Description: _propTypesDefault.default.string.isRequired
+        }),
+        Director: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Bio: _propTypesDefault.default.string.isRequired,
+            Birth: _propTypesDefault.default.number.isRequired
+        })
+    }).isRequired
+};
+
+  $parcel$ReactRefreshHelpers$73f0.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"lxEy4","react":"gXKCL","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX","prop-types":"gfhrc"}],"fMETw":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$871e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$871e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LoginView", ()=>LoginView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _s = $RefreshSig$();
+function LoginView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log(username, password);
+        /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
+        __source: {
+            fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
+            lineNumber: 17
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
+                    lineNumber: 18
+                },
+                __self: this,
+                children: [
+                    "Username:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
+                            lineNumber: 20
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
+                    lineNumber: 22
+                },
+                __self: this,
+                children: [
+                    "Password:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
+                            lineNumber: 24
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                type: "submit",
+                onClick: handleSubmit,
+                __source: {
+                    fileName: "careerfoundry/myFlix-client/src/components/login-view/login-view.jsx",
+                    lineNumber: 26
+                },
+                __self: this,
+                children: "Submit"
+            })
+        ]
+    }));
+}
+_s(LoginView, "wuQOK7xaXdVz4RMrZQhWbI751Oc=");
+_c = LoginView;
+LoginView.propTypes = {
+    user: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired
+    }).isRequired,
+    onLoggedIn: _propTypesDefault.default.func.isRequired
+};
+var _c;
+$RefreshReg$(_c, "LoginView");
+
+  $parcel$ReactRefreshHelpers$871e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"lxEy4","react":"gXKCL","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX","prop-types":"gfhrc"}],"gUqUJ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$529f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$529f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _s = $RefreshSig$();
+function RegistrationView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [email, setEmail] = _react.useState('');
+    const [birthday, setBirthday] = _react.useState('');
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log(username, password, email, birthday);
+        props.onRegistration(username);
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
+        __source: {
+            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+            lineNumber: 17
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                    lineNumber: 18
+                },
+                __self: this,
+                children: [
+                    "Username:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                            lineNumber: 20
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                    lineNumber: 22
+                },
+                __self: this,
+                children: [
+                    "Password:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                            lineNumber: 24
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                    lineNumber: 26
+                },
+                __self: this,
+                children: [
+                    "Email:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: email,
+                        onChange: (e)=>setEmail(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                            lineNumber: 28
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                    lineNumber: 30
+                },
+                __self: this,
+                children: [
+                    "Birthday:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: birthday,
+                        onChange: (e)=>setBirthday(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                            lineNumber: 32
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                type: "submit",
+                onClick: handleSubmit,
+                __source: {
+                    fileName: "careerfoundry/myFlix-client/src/components/registration-view/registration-view.jsx",
+                    lineNumber: 34
+                },
+                __self: this,
+                children: "Submit"
+            })
+        ]
+    }));
+}
+_s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
+_c = RegistrationView;
+RegistrationView.propTypes = {
+    user: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired,
+        Birthday: _propTypesDefault.default.string.isRequired
+    }),
+    onRegistration: _propTypesDefault.default.func.isRequired
+};
+var _c;
+$RefreshReg$(_c, "RegistrationView");
+
+  $parcel$ReactRefreshHelpers$529f.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"lxEy4","react":"gXKCL","prop-types":"gfhrc","@parcel/transformer-js/src/esmodule-helpers.js":"a8Nih","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"eG3eX"}],"jYZWO":[function() {},{}]},["eYWtN","fsYId","aylhM"], "aylhM", "parcelRequire92ae")
 
 //# sourceMappingURL=index.6097138b.js.map

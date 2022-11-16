@@ -19,11 +19,13 @@
   "dependencies": {
     "@parcel/transformer-js": "^2.7.0",
     "@types/react": "^18.0.21",
+    "axios": "^1.1.3",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.7.0",
-    "parcel": "^2.7.0"
+    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "parcel": "^2.0.0-rc.0"
   }
 }
