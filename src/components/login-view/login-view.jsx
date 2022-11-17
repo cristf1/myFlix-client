@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Container, Row, Col, CardGroup, Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 
 export function LoginView(props) {
@@ -10,10 +11,22 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
+    /* Send a request to the server for authentication */
+    axios.post('localhost:1234/login', {
+      Username: username,
+      Password: password
+    })
+      .then(response => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log('no such user')
+      });
+    //console.log(username, password);
     /* Send a request to the server for authentication */
     /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    //props.onLoggedIn(username);
   };
 
   return (
