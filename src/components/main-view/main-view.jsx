@@ -51,6 +51,7 @@ export class MainView extends React.Component {
     });
   }
 
+
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -81,6 +82,14 @@ export class MainView extends React.Component {
   onRegistration(register) {
     this.setState({
       register
+    });
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
     });
   }
 
@@ -124,9 +133,19 @@ export class MainView extends React.Component {
         </Row>
       )
     }
+
+    <button onClick={() => { this.onLoggedOut() }}>Logout</button>
   }
 
   componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
+
     axios.get('https://cristine-myflix.herokuapp.com/movies')
       .then(response => {
         this.setState({
@@ -136,6 +155,7 @@ export class MainView extends React.Component {
       .catch(error => {
         console.log(error);
       });
-  }
 
+
+  }
 }

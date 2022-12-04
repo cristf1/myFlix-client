@@ -25298,21 +25298,20 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
-    getMovies(token) {
-        _axiosDefault.default.get("https://cristine-myflix.herokuapp.com/movies", {
-            headers: {
-                Authorization: 'Bearer ${token}'
-            }
-        }).then((response)=>{
-            //Assign the result to the state
-            this.setState({
-                movies: response.data
-            });
-        }).catch(function(error) {
-            console.log(error);
-        });
-    }
-    onRegistration(register) {
+    /* getMovies(token) {
+     axios.get("https://cristine-myflix.herokuapp.com/movies", {
+       headers: { Authorization: 'Bearer ${token}' }
+     })
+       .then(response => {
+         //Assign the result to the state
+         this.setState({
+           movies: response.data
+         });
+       })
+       .catch(function (error) {
+         console.log(error);
+       });
+   } */ onRegistration(register) {
         this.setState({
             register
         });
@@ -25324,7 +25323,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 92
+                lineNumber: 93
             },
             __self: this
         }));
@@ -25333,7 +25332,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 93
+                lineNumber: 94
             },
             __self: this
         }));
@@ -25341,7 +25340,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 96
+                lineNumber: 97
             },
             __self: this
         }));
@@ -25349,14 +25348,14 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view justify-content-md-center",
             __source: {
                 fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                lineNumber: 99
+                lineNumber: 100
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                 md: 8,
                 __source: {
                     fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                    lineNumber: 102
+                    lineNumber: 103
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25366,7 +25365,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                        lineNumber: 103
+                        lineNumber: 104
                     },
                     __self: this
                 }, movie._id)
@@ -25374,7 +25373,7 @@ class MainView extends _reactDefault.default.Component {
                     md: 3,
                     __source: {
                         fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                        lineNumber: 114
+                        lineNumber: 115
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25384,7 +25383,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "careerfoundry/myFlix-client/src/components/main-view/main-view.jsx",
-                            lineNumber: 115
+                            lineNumber: 116
                         },
                         __self: this
                     }, movie._id)
