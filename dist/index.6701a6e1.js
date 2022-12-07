@@ -25377,25 +25377,19 @@ class MainView extends _reactDefault.default.Component {
                             element: /*#__PURE__*/ _jsxRuntime.jsx("p", {
                                 children: "Test"
                             }),
-                            render: ()=>{
-                                return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx("h2", {
-                                            children: "Contact"
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsxs("p", {
-                                            children: [
-                                                "Name: ",
-                                                name
-                                            ]
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsxs("p", {
-                                            children: [
-                                                "Adress: ",
-                                                address
-                                            ]
-                                        })
-                                    ]
+                            /* return movies.map(m => (
+                 <Col md={3} key={m._id}>
+                   <MovieCard movie={m} />
+                 </Col>
+               )) */ render: ()=>{
+                                if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                        movies: movies,
+                                        onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                    })
+                                }));
+                                if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                    className: "main-view"
                                 }));
                             },
                             __source: {
@@ -25418,7 +25412,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 119
+                                lineNumber: 111
                             },
                             __self: this
                         }),
@@ -25439,7 +25433,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 124
+                                lineNumber: 116
                             },
                             __self: this
                         }),
@@ -25460,7 +25454,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 131
+                                lineNumber: 123
                             },
                             __self: this
                         })

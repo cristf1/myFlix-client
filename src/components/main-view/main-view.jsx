@@ -89,32 +89,24 @@ export class MainView extends React.Component {
         <Row className='main-view justify-content-md-center'>
           <Routes>
             <Route exact path="/" element={<p>Test</p>}
-              render={() => {
-                return (
-                  <div>
-                    <h2>Contact</h2>
-                    <p>Name: {name}</p>
-                    <p>Adress: {address}</p>
-                  </div>
-                );
-              }}
 
-            /* return movies.map(m => (
-               <Col md={3} key={m._id}>
-                 <MovieCard movie={m} />
-               </Col>
-             )) */
-            /*  if (!user)
-                   return (
-                     <Col>
-                       <LoginView
-                         movies={movies}
-                         onLoggedIn={(user) => this.onLoggedIn(user)}
-                       />
-                     </Col>
-                   );
-                 if (movies.length === 0) return <div className='main-view' />;
-               }}*/
+              /* return movies.map(m => (
+                 <Col md={3} key={m._id}>
+                   <MovieCard movie={m} />
+                 </Col>
+               )) */
+              render={() => {
+                if (!user)
+                  return (
+                    <Col>
+                      <LoginView
+                        movies={movies}
+                        onLoggedIn={(user) => this.onLoggedIn(user)}
+                      />
+                    </Col>
+                  );
+                if (movies.length === 0) return <div className='main-view' />;
+              }}
             />
             <Route path="/movies/:movieId" render={({ match, history }) => {
               return <Col md={8}>
