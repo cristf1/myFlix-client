@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -82,52 +84,80 @@ export class MainView extends React.Component {
 
   render() {
     const { movies, selectedMovie, user, register } = this.state;
-
-    if (!user)
-      return (
-        <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} user={user} />
-      );
-
-    if (movies.length === 0) return <div className='main-view' />;
-
     return (
-      <Row className='main-view justify-content-md-center'>
-        {/* {selectedMovie ? (
-            <Col md={8} key={movie._id}>
-              <MovieView
-                movieData={selectedMovie}
-                onBackClick={(newSelectedMovie) => {
-                  this.setSelectedMovie(newSelectedMovie);
-                }}
-              />
-            </Col>
-          ) : (
-            movies.map((movie) => (
-              <Col md={3} key={movie._id}>
-                <MovieCard
-                  movieData={movie}
-                  onMovieClick={(newSelectedMovie) => {
-                    this.setSelectedMovie(movie);
-                  }}
-                />
-              </Col>
-            ))
-          )}
-         */}
-        {movies.map((movie) => (
-          <Col id='background' sm={6} md={4} lg={3} key={movie._id}>
-            <MovieCard movieData={movie} />
-          </Col>
-        ))}
-      </Row>
-    );
+      <Router>
+        <Row className='main-view justify-content-md-center'>
+          <Routes>
+            <Route exact path="/" element={<p>Test</p>}
+              render={() => {
+                return (
+                  <div>
+                    <h2>Contact</h2>
+                    <p>Name: {name}</p>
+                    <p>Adress: {address}</p>
+                  </div>
+                );
+              }}
 
-    <button
-      onClick={() => {
-        this.onLoggedOut();
-      }}
-    >
-      Logout
-    </button>;
+            /* return movies.map(m => (
+               <Col md={3} key={m._id}>
+                 <MovieCard movie={m} />
+               </Col>
+             )) */
+            /*  if (!user)
+                   return (
+                     <Col>
+                       <LoginView
+                         movies={movies}
+                         onLoggedIn={(user) => this.onLoggedIn(user)}
+                       />
+                     </Col>
+                   );
+                 if (movies.length === 0) return <div className='main-view' />;
+               }}*/
+            />
+            <Route path="/movies/:movieId" render={({ match, history }) => {
+              return <Col md={8}>
+                <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+              </Col>
+            }} />
+            <Route path="/genres/:name" render={({ match, history }) => {
+              if (movies.length === 0) return <div className="main-view" />;
+              return <Col md={8}>
+                <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+              </Col>
+            }
+            } />
+            <Route path="/directors/:name" render={({ match, history }) => {
+              if (movies.length === 0) return <div className="main-view" />;
+              return <Col md={8}>
+                <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+              </Col>
+            }
+            } />
+          </Routes>
+        </Row>
+      </Router >
+    );
   }
 }
+
+
+/*movies.map((movie) => (
+  <Col id='background' sm={6} md={4} lg={3} key={movie._id}>
+    <MovieCard movieData={movie} />
+  </Col>
+))
+}
+</Row >
+); 
+
+<button
+onClick={() => {
+  this.onLoggedOut();
+}}
+>
+Logout
+</button>;
+}
+}*/
