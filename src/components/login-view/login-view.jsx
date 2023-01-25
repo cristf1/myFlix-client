@@ -14,13 +14,13 @@ export function LoginView(props) {
     /* Send a request to the server for authentication */
     axios.post('https://cristine-myflix.herokuapp.com/login', {
       Username: username,
-      Password: password
+      Password: password,
     })
       .then(response => {
         const data = response.data;
         props.onLoggedIn(data);
       })
-      .catch(e => {
+      .catch((e) => {
         console.log('no such user')
       });
     //console.log(username, password);
@@ -64,7 +64,7 @@ LoginView.propTypes = {
   user: PropTypes.shape({
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired
-  }).isRequired,
+  })/*.isRequired */,
   onLoggedIn: PropTypes.func.isRequired
 };
 
