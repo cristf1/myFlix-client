@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -61,8 +61,8 @@ export class MainView extends React.Component {
         this.setState({
           movies: response.data,
         });
-        console.log(this.state.movies); \
-        
+        console.log(this.state.movies);
+
       })
       .catch(function (error) {
         console.log(error);
