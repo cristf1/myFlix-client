@@ -42,30 +42,26 @@ export const MainView = () => {
         }
     ]);
 
-    const [selectedMovie, setSelectedMovie] = useState(null);
-    if (selectedMovie) {
-        return <MovieView movie={selectedMovie} />;
-    }
 
+
+
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    if (selectedMovie) {
+        return (
+            <MovieView movieData={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+        );
+    };
 
     if (movies.length === 0) {
         return <div> The list is empty!</div>;
     };
 
-
     return (
         <div>
-            <button
-                onClick={() => {
-                    alert("Nice!");
-                }}
-            >
-                Click me!
-            </button>
-            {movies.map((movie) => (
+            {movies.map((movieData) => (
                 <MovieCard
-                    key={movie.id}
-                    movieData={movie}
+                    movieData={movieData}
                     onMovieClick={(newSelectedMovie) => {
                         setSelectedMovie(newSelectedMovie)
                     }} />
