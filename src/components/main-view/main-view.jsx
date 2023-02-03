@@ -5,13 +5,23 @@ import { LoginView } from "../login-view/login-view";
 
 
 export const MainView = () => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const storedToken = localStorage.getItem("token");
     const [movies, setMovies] = useState([]);
+    const [user, setUser] = useState(null);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+    const [token, setToken] = useState(null);
     //fetch data from API and update default state with movieData
     useEffect(() => {
-        fetch("https://cristine-myflix.herokuapp.com/movies")
+        if (!token)
+            return;
+
+        fetch("https://cristine-myflix.herokuapp.com/movies", {
+            headers: { Authorization: 'Bearer ${token}' },
+        })
             .then((response => response.json()))
             .then((movieData) => {
-                console.log("movies from api:", movieData)
+                console.log("movies from api:", movieData);
                 //update state with data value:
                 const moviesFromApi = movieData.map((movieAPIData) => {
                     return {
@@ -21,20 +31,29 @@ export const MainView = () => {
                         director: movieAPIData.Director.Name
                     }
                 });
+
                 setMovies(moviesFromApi);
             });
-    }, []);
+    }, [token]);
 
 
-    const [user, setUser] = useState(null);
+
+
+
     if (!user) {
-        return <LoginView />;
+        return <LoginView
+            onLoggedIn={(user, token) => {
+                setUser(user);
+                setToken(token);
+            }} />;
     }
 
 
 
+
+
     //movie list and setting click of Movie Card 
-    const [selectedMovie, setSelectedMovie] = useState(null);
+
 
     if (selectedMovie) {
         return (
@@ -55,10 +74,9 @@ export const MainView = () => {
                         setSelectedMovie(newSelectedMovie)
                     }} />
             ))}
+            <button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</button>
         </div>
+
     );
 
-
-
 };
-
