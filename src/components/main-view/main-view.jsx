@@ -2,50 +2,63 @@ import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
+import { SignupView } from "../signup-view/signup-view";
 
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     const storedToken = localStorage.getItem("token");
     const [movies, setMovies] = useState([]);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(storedUser ? storedUser : null);
     const [selectedMovie, setSelectedMovie] = useState(null);
-    const [token, setToken] = useState(null);
+    const [token, setToken] = useState(storedToken ? storedToken : null);
     //fetch data from API and update default state with movieData
     useEffect(() => {
-        if (!token)
+        if (!token) {
             return;
+        }
 
         fetch("https://cristine-myflix.herokuapp.com/movies", {
             headers: { Authorization: 'Bearer ${token}' },
         })
             .then((response => response.json()))
             .then((movieData) => {
-                console.log("movies from api:", movieData);
-                //update state with data value:
-                const moviesFromApi = movieData.map((movieAPIData) => {
-                    return {
-                        title: movieAPIData.Title,
-                        description: movieAPIData.Description,
-                        genre: movieAPIData.Genre.Name,
-                        director: movieAPIData.Director.Name
-                    }
-                });
-
-                setMovies(moviesFromApi);
+                console.log(movieData);
+                setMovies(movies);
             });
     }, [token]);
+    /* .then((movieData) => {
+         console.log("movies from api:", movieData);
+         //update state with data value:
+         const moviesFromApi = movieData.map((movieAPIData) => {
+             return {
+                 title: movieAPIData.Title,
+                 description: movieAPIData.Description,
+                 genre: movieAPIData.Genre.Name,
+                 director: movieAPIData.Director.Name
+             }
+         });
+
+         setMovies(moviesFromApi);
+     });*/
+    // }, []);
 
 
 
 
 
     if (!user) {
-        return <LoginView
-            onLoggedIn={(user, token) => {
-                setUser(user);
-                setToken(token);
-            }} />;
+        return (
+            <>
+                <LoginView
+                    onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                    }} />
+                or
+                < SignupView />
+            </>
+        );
     }
 
 
