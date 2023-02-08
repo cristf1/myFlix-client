@@ -19,12 +19,11 @@ export const LoginView = ({ onLoggedIn }) => {
 
 
         fetch("https://cristine-myflix.herokuapp.com/login", {
-            //mode: 'no-cors',
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
             /* }).then((response) => {
                  if (response.ok) {
                      onLoggedIn(username);
@@ -32,14 +31,17 @@ export const LoginView = ({ onLoggedIn }) => {
                      alert("Login failed");
                  }
              });*/
+
         })
             .then((response) => response.json())
-            .then((userData) => {
-                console.log("Login response:", userData);
-                if (userData.user, userData.token) {
-                    localStorage.setItem("user", JSON.stringify(userData.user));
-                    localStorage.setItem("token", userData.token);
-                    onLoggedIn(userData.user, userData.token);
+            .then((data) => {
+                //console.log(response);
+
+                console.log("Login response:", data);
+                if (data.user, data.token) {
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                    localStorage.setItem("token", data.token);
+                    onLoggedIn(data.user, data.token);
                 } else {
                     alert("No such user");
                 }
