@@ -1,3 +1,4 @@
+//import { json } from "body-parser";
 import { React, useState } from "react";
 
 
@@ -11,8 +12,8 @@ export const LoginView = ({ onLoggedIn }) => {
         event.preventDefault();
 
         const data = {
-            access: username,
-            secret: password
+            Username: username,
+            Password: password,
         };
 
 
@@ -23,7 +24,7 @@ export const LoginView = ({ onLoggedIn }) => {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data)
             /* }).then((response) => {
                  if (response.ok) {
                      onLoggedIn(username);
