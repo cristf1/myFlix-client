@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { MainView } from "./components/main-view/main-view";
+import Container from "react-bootstrap/Container";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 /*const app = express();
 const cors = require('cors');
@@ -16,9 +18,13 @@ import "./index.scss";
 const MyFlixApplication = () => {
 
     return (
-        <div className="my-flix">
+
+
+        <Container style={{ border: "1px solid red" }}>
             <MainView />
-        </div>
+        </Container>
+
+
     );
 };
 
