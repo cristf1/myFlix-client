@@ -16,6 +16,10 @@
   padding: 4px 12px;
 }
 
+.my-flix {
+  color: #4682b4;
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -12030,10 +12034,6 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}
-
-.my-flix {
-  color: #4682b4;
 }
 
 /*# sourceMappingURL=index.5f1df611.css.map */
