@@ -2,14 +2,14 @@ import PropTypes from "prop-types";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom"
 
-export const MovieCard = ({ movieData }) => {
+export const MovieCard = ({ movie }) => {
   return (
-    <Link to={`/movies/${encodeURIComponent(movieData.id)}`}>
+    <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
       <Card className={'h-100'} variant="link">
-        <Card.Img variant="top" src={movieData.image} />
+        <Card.Img variant="top" src={movie.image} />
         <Card.Body>
-          <Card.Title>{movieData.title}</Card.Title>
-          <Card.Text>{movieData.author}</Card.Text>
+          <Card.Title>{movie.title}</Card.Title>
+          <Card.Text>{movie.author}</Card.Text>
         </Card.Body>
       </Card>
     </Link >

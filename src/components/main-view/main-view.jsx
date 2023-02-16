@@ -90,10 +90,11 @@ export const MainView = () => {
                                     <Col> The list is empty!</Col>
                                 ) : (
                                     <Col md={8} style={{ border: "1px solid black" }} >
-                                        <MovieView movies={selectedMovie} />
+                                        <MovieView movies={movies} />
                                     </Col>
                                 )
                                 }
+
                             </>
                         }
                     >
@@ -108,9 +109,9 @@ export const MainView = () => {
                                     <Col> The list is empty!</Col>
                                 ) : (
                                     <>
-                                        {movies.map((movieData) => (
-                                            <Col className='mb=4' key={movieData._id} md={3}>
-                                                <MovieCard movieData={movieData} />
+                                        {movies.map((movie) => (
+                                            <Col className='mb=4' key={movie.id} md={3}>
+                                                <MovieCard movie={movie} />
 
                                             </Col>
                                         )

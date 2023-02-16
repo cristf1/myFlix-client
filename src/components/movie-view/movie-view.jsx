@@ -5,12 +5,14 @@ import { Button } from "react-bootstrap"
 import Row from 'react-bootstrap/Row'
 
 
-export const MovieView = ({ movieData, onBackClick }) => {
+export const MovieView = ({ movies, onBackClick }) => {
   const { movieId } = useParams();
+
+  console.log(movieId);
 
   console.log(useParams());
 
-  const movie = movieData.find((b) => b.id === movieId)
+  const movie = movies.find((b) => b.id === movieId)
 
   console.log("b:", b, "movie:", movie);
 
