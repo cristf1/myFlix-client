@@ -8,35 +8,31 @@ import Row from 'react-bootstrap/Row'
 export const MovieView = ({ movies, onBackClick }) => {
   const { movieId } = useParams();
 
-  console.log(movieId);
-
   console.log(useParams());
 
   const movie = movies.find((b) => b.id === movieId)
-
-  console.log("b:", b, "movie:", movie);
 
   return (
     <Row className="justify-content-md-center">
       <div>
         <div>
-          <img src={movieData.image} />
+          <img src={movie.image} />
         </div>
         <div>
           <span>Title: </span>
-          <span>{movieData.title}</span>
+          <span>{movie.title}</span>
         </div>
         <div>
           <span>Director: </span>
-          <span>{movieData.director}</span>
+          <span>{movie.director}</span>
         </div>
         <div>
           <span>Genre: </span>
-          <span>{movieData.genre}</span>
+          <span>{movie.genre}</span>
         </div>
         <div>
           <span>Description: </span>
-          <span>{movieData.description}</span>
+          <span>{movie.description}</span>
         </div>
         <div>
           <Link to={'/'}>

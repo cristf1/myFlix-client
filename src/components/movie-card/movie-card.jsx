@@ -4,12 +4,13 @@ import { Link } from "react-router-dom"
 
 export const MovieCard = ({ movie }) => {
   return (
-    <Link to={`/movies/${encodeURIComponent(movie.id)}`}>
+    <Link to={`/movies/${(movie.id)}`}>
       <Card className={'h-100'} variant="link">
         <Card.Img variant="top" src={movie.image} />
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
-          <Card.Text>{movie.author}</Card.Text>
+          <Card.Text>{movie.director}</Card.Text>
+          <Card.Text>{movie.id}</Card.Text>
         </Card.Body>
       </Card>
     </Link >

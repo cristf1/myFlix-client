@@ -3,6 +3,8 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
+import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { ProfileView } from "../profile-view/profile-view";
 
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
@@ -15,7 +17,7 @@ export const MainView = () => {
     const storedToken = localStorage.getItem("token");
     const [movies, setMovies] = useState([]);
     const [user, setUser] = useState(storedUser ? storedUser : null);
-    const [selectedMovie, setSelectedMovie] = useState(null);
+    //const [selectedMovie, setSelectedMovie] = useState(null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     //fetch data from API and update default state with movieData
     useEffect(() => {
@@ -36,6 +38,7 @@ export const MainView = () => {
                         genre: movieAPIData.Genre.Name,
                         director: movieAPIData.Director.Name,
                         id: movieAPIData._id,
+                        //userId: movieAPIData._
                     }
                 });
                 setMovies(moviesFromApi);
@@ -45,6 +48,11 @@ export const MainView = () => {
     return (
 
         <BrowserRouter>
+            <NavigationBar
+                user={user}
+                onLoggedOut={() => {
+                    setUser(null);
+                }} />
             <Row className="justify-content-md-center">
                 <Routes>
                     <Route
@@ -100,6 +108,25 @@ export const MainView = () => {
                     >
                     </Route>
                     <Route
+                        path="/profile"
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to="/login" replace />
+                                ) : movies.length === 0 ? (
+                                    <Col> The list is empty!</Col>
+                                ) : (
+                                    <Col md={8} style={{ border: "1px solid black" }} >
+                                        <ProfileView user={user} movies={movies} />
+                                    </Col>
+                                )
+                                }
+
+                            </>
+                        }
+                    >
+                    </Route>
+                    <Route
                         path='/'
                         element={
                             <>
@@ -123,6 +150,7 @@ export const MainView = () => {
                             </>
                         }
                     />
+
 
                 </Routes>
             </Row>
