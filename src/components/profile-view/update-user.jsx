@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function UpdateUser(handleSubmit, handleUpdate) {
+function UpdateUser(user, handleSubmit, handleUpdate) {
 
     return (
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -10,7 +10,7 @@ function UpdateUser(handleSubmit, handleUpdate) {
                 <input
                     type='text'
                     name='Username'
-                    defaultValue={username}
+                    defaultValue={user.username}
                     onChange={(e) => handleUpdate(e)}
                 />
             </label>
@@ -19,7 +19,7 @@ function UpdateUser(handleSubmit, handleUpdate) {
                 <input
                     type='password'
                     name='Password'
-                    defaultValue={password}
+                    defaultValue={user.password}
                     onChange={(e) => handleUpdate(e)}
                 />
             </label>
@@ -28,7 +28,7 @@ function UpdateUser(handleSubmit, handleUpdate) {
                 <input
                     type='email'
                     name='email'
-                    defaultValue={email}
+                    defaultValue={user.email}
                     onChange={(e) => handleUpdate(e)}
                 />
             </label>
@@ -36,7 +36,7 @@ function UpdateUser(handleSubmit, handleUpdate) {
                 Birthday:
                 <input
                     type='date'
-                    value={birthday}
+                    defaultValue={user.birthday}
                     onChange={(e) => handleUpdate(e)}
                 />
             </label>

@@ -67,7 +67,7 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
                 </div>
                 <div>
                     <h5> Edit Account </h5>
-                    <UpdateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
+                    <UpdateUser user={user} handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
 
                 </div>
 

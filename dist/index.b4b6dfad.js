@@ -48078,6 +48078,7 @@ const ProfileView = ({ user , movies , onBackClick  })=>{
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _updateUserDefault.default), {
+                            user: user,
                             handleSubmit: handleSubmit,
                             handleUpdate: handleUpdate
                         }, void 0, false, {
@@ -48291,7 +48292,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function UpdateUser(handleSubmit, handleUpdate) {
+function UpdateUser(user, handleSubmit, handleUpdate) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         onSubmit: (e)=>handleSubmit(e),
         children: [
@@ -48301,7 +48302,7 @@ function UpdateUser(handleSubmit, handleUpdate) {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
                         name: "Username",
-                        defaultValue: username,
+                        defaultValue: user.username,
                         onChange: (e)=>handleUpdate(e)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
@@ -48320,7 +48321,7 @@ function UpdateUser(handleSubmit, handleUpdate) {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "password",
                         name: "Password",
-                        defaultValue: password,
+                        defaultValue: user.password,
                         onChange: (e)=>handleUpdate(e)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
@@ -48339,7 +48340,7 @@ function UpdateUser(handleSubmit, handleUpdate) {
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "email",
                         name: "email",
-                        defaultValue: email,
+                        defaultValue: user.email,
                         onChange: (e)=>handleUpdate(e)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
@@ -48357,7 +48358,7 @@ function UpdateUser(handleSubmit, handleUpdate) {
                     "Birthday:",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "date",
-                        value: birthday,
+                        defaultValue: user.birthday,
                         onChange: (e)=>handleUpdate(e)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
