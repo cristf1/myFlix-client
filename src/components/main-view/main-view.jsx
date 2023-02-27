@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
-import { MovieCard } from "../movie-card/movie-card";
-import { MovieView } from "../movie-view/movie-view";
-import { LoginView } from "../login-view/login-view";
-import { SignupView } from "../signup-view/signup-view";
-import { NavigationBar } from "../navigation-bar/navigation-bar";
-import { ProfileView } from "../profile-view/profile-view";
+import { useState, useEffect } from 'react';
+import { MovieCard } from '../movie-card/movie-card';
+import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
+import { SignupView } from '../signup-view/signup-view';
+import { NavigationBar } from '../navigation-bar/navigation-bar';
+import { ProfileView } from '../profile-view/profile-view';
 
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 
 export const MainView = () => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = localStorage.getItem("token");
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const storedToken = localStorage.getItem('token');
     const [movies, setMovies] = useState([]);
     const [user, setUser] = useState(storedUser ? storedUser : null);
     //const [selectedMovie, setSelectedMovie] = useState(null);
@@ -25,7 +25,7 @@ export const MainView = () => {
             return;
         }
 
-        fetch("https://cristine-myflix.herokuapp.com/movies", {
+        fetch('https://cristine-myflix.herokuapp.com/movies', {
             headers: { Authorization: 'Bearer ${token}' },
         })
             .then((response => response.json()))
@@ -38,6 +38,7 @@ export const MainView = () => {
                         genre: movieAPIData.Genre.Name,
                         director: movieAPIData.Director.Name,
                         id: movieAPIData._id,
+                        //image: movieAPIData.Image,
                         //userId: movieAPIData._
                     }
                 });
@@ -53,14 +54,14 @@ export const MainView = () => {
                 onLoggedOut={() => {
                     setUser(null);
                 }} />
-            <Row className="justify-content-md-center">
+            <Row className='justify-content-md-center'>
                 <Routes>
                     <Route
-                        path="/signup"
+                        path='/signup'
                         element={
                             <>
                                 {user ? (
-                                    <Navigate to="/" />
+                                    <Navigate to='/' />
                                 ) : (
                                     <Col md={5}>
                                         <SignupView />
@@ -71,11 +72,11 @@ export const MainView = () => {
                     >
                     </Route>
                     <Route
-                        path="/login"
+                        path='/login'
                         element={
                             <>
                                 {user ? (
-                                    <Navigate to="/" />
+                                    <Navigate to='/' />
                                 ) : (
                                     <Col md={5}>
                                         <LoginView onLoggedIn={(user, token) => {
@@ -89,15 +90,15 @@ export const MainView = () => {
                     >
                     </Route>
                     <Route
-                        path="/movies/:movieId"
+                        path='/movies/:movieId'
                         element={
                             <>
                                 {!user ? (
-                                    <Navigate to="/login" replace />
+                                    <Navigate to='/login' replace />
                                 ) : movies.length === 0 ? (
                                     <Col> The list is empty!</Col>
                                 ) : (
-                                    <Col md={8} style={{ border: "1px solid black" }} >
+                                    <Col md={8} style={{ border: '1px solid black' }} >
                                         <MovieView movies={movies} />
                                     </Col>
                                 )
@@ -108,15 +109,15 @@ export const MainView = () => {
                     >
                     </Route>
                     <Route
-                        path="/profile"
+                        path='/users/:username'
                         element={
                             <>
                                 {!user ? (
-                                    <Navigate to="/login" replace />
+                                    <Navigate to='/login' replace />
                                 ) : movies.length === 0 ? (
                                     <Col> The list is empty!</Col>
                                 ) : (
-                                    <Col md={8} style={{ border: "1px solid black" }} >
+                                    <Col md={8} style={{ border: '1px solid black' }} >
                                         <ProfileView user={user} movies={movies} />
                                     </Col>
                                 )
@@ -131,7 +132,7 @@ export const MainView = () => {
                         element={
                             <>
                                 {!user ? (
-                                    <Navigate to="/login" replace />
+                                    <Navigate to='/login' replace />
                                 ) : movies.length === 0 ? (
                                     <Col> The list is empty!</Col>
                                 ) : (

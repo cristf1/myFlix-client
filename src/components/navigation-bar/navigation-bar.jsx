@@ -1,38 +1,35 @@
 import React from 'react';
-import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { ProfileView } from "../profile-view/profile-view";
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { ProfileView } from '../profile-view/profile-view';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg='light' expand='lg'>
             <Container>
-                <Navbar.Brand as={Link} to="/">
+                <Navbar.Brand as={Link} to='/'>
                     Find Your Movie
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                <Navbar.Toggle aria-controls='basic-navbar-nav' />
+                <Navbar.Collapse id='basic-navbar-nav'>
+                    <Nav className='me-auto'>
                         {!user && (
                             <>
-                                <Nav.Link as={Link} to="/login">
+                                <Nav.Link as={Link} to='/login'>
                                     Login
                                 </Nav.Link>
-                                <Nav.Link as={Link} to="/signup">
+                                <Nav.Link as={Link} to='/signup'>
                                     Signup
                                 </Nav.Link>
                             </>
                         )}
                         {user && (
                             <>
-                                <Nav.Link as={Link} to="/">
+                                <Nav.Link as={Link} to='/'>
                                     Home
                                 </Nav.Link>
-                                <Nav.Link as={Link} to="/users/${(user.Username)}">
+                                <Nav.Link as={Link} to={`/users/${user.Username}`}>
                                     Profile
-                                </Nav.Link>
-                                <Nav.Link as={Link} to="/users">
-                                    MyProfile
                                 </Nav.Link>
                                 <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>
 

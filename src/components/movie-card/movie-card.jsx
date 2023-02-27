@@ -1,12 +1,12 @@
-import PropTypes from "prop-types";
-import { Card } from "react-bootstrap";
-import { Link } from "react-router-dom"
+import PropTypes from 'prop-types';
+import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 export const MovieCard = ({ movie }) => {
   return (
     <Link to={`/movies/${(movie.id)}`}>
-      <Card className={'h-100'} variant="link">
-        <Card.Img variant="top" src={movie.image} />
+      <Card className={'h-100'} variant='link'>
+        <Card.Img variant='top' src={movie.image} />
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
           <Card.Text>{movie.director}</Card.Text>

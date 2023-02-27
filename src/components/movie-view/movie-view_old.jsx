@@ -34,15 +34,15 @@ export class MovieView extends React.Component {
                     <span className='value-description'>{movieData.Description}</span>
                 </div>
                 <Link to={`/directors/${movie.Director.Name}`}>
-                    <Button variant="link">Director</Button>
+                    <Button variant='link'>Director</Button>
                 </Link>
 
                 <Link to={`/genres/${movie.Genre.Name}`}>
-                    <Button variant="link">Genre</Button>
+                    <Button variant='link'>Genre</Button>
                 </Link>
                 <button onClick={onBackClick}
-                    className="back-button"
-                    style={{ cursor: "pointer" }}>
+                    className='back-button'
+                    style={{ cursor: 'pointer' }}>
                     Back
                 </button>
             </div>

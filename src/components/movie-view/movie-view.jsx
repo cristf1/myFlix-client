@@ -1,19 +1,18 @@
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import './movie-view.scss';
-import { Button } from "react-bootstrap"
+import { Button } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 
 
 export const MovieView = ({ movies, onBackClick }) => {
   const { movieId } = useParams();
 
-  console.log(useParams());
 
   const movie = movies.find((b) => b.id === movieId)
 
   return (
-    <Row className="justify-content-md-center">
+    <Row className='justify-content-md-center'>
       <div>
         <div>
           <img src={movie.image} />
@@ -38,8 +37,8 @@ export const MovieView = ({ movies, onBackClick }) => {
           <Link to={'/'}>
             <Button
               onClick={onBackClick}
-              //className="back-button"
-              style={{ cursor: "pointer" }}>
+              //className='back-button'
+              style={{ cursor: 'pointer' }}>
               Back</Button>
           </Link>
         </div>

@@ -4,33 +4,32 @@ import React from 'react'
 function UpdateUser(handleSubmit, handleUpdate) {
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e)}>
             <label>
                 Username:
                 <input
                     type='text'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                    minLength='3'
+                    name='Username'
+                    defaultValue={username}
+                    onChange={(e) => handleUpdate(e)}
                 />
             </label>
             <label>
                 Password:
                 <input
                     type='password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
+                    name='Password'
+                    defaultValue={password}
+                    onChange={(e) => handleUpdate(e)}
                 />
             </label>
             <label>
                 Email:
                 <input
                     type='email'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
+                    name='email'
+                    defaultValue={email}
+                    onChange={(e) => handleUpdate(e)}
                 />
             </label>
             <label>
@@ -38,11 +37,10 @@ function UpdateUser(handleSubmit, handleUpdate) {
                 <input
                     type='date'
                     value={birthday}
-                    onChange={(e) => setBirthday(e.target.value)}
-                    required
+                    onChange={(e) => handleUpdate(e)}
                 />
             </label>
-            <button type='submit'>Submit</button>
+            <button variant='primary' type='submit'>Submit</button>
         </form>
     );
 };
