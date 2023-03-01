@@ -27291,22 +27291,25 @@ const MainView = ()=>{
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                             path: "/users/:username",
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
-                                    to: "/login",
-                                    replace: true
-                                }, void 0, false, void 0, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                                    children: " The list is empty!"
-                                }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                                    md: 8,
-                                    style: {
-                                        border: "1px solid black"
-                                    },
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
-                                        user: user,
-                                        movies: movies
-                                    }, void 0, false, void 0, void 0)
-                                }, void 0, false, void 0, void 0)
-                            }, void 0, false)
+                                children: [
+                                    !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
+                                        to: "/login",
+                                        replace: true
+                                    }, void 0, false, void 0, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                                        children: " The list is empty!"
+                                    }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                                        md: 8,
+                                        style: {
+                                            border: "1px solid black"
+                                        },
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileView.ProfileView), {
+                                            user: user,
+                                            movies: movies
+                                        }, void 0, false, void 0, void 0)
+                                    }, void 0, false, void 0, void 0),
+                                    "console.log(user);"
+                                ]
+                            }, void 0, true)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 111,
@@ -48289,10 +48292,24 @@ $parcel$ReactRefreshHelpers$95d1.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UpdateUser", ()=>UpdateUser);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function UpdateUser(user, handleSubmit, handleUpdate) {
+var _s = $RefreshSig$();
+const UpdateUser = ({ user  })=>{
+    _s();
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+    };
+    const handleUpdate = (event)=>{
+        event.preventDefault();
+    };
+    const [tempUser, setTempUser] = useState();
+    (0, _react.useEffect)(()=>{
+        console.log("user:", user);
+        console.log("tempUser:", tempUser);
+    });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         onSubmit: (e)=>handleSubmit(e),
         children: [
@@ -48300,21 +48317,25 @@ function UpdateUser(user, handleSubmit, handleUpdate) {
                 children: [
                     "Username:",
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        class: "m-2 block px-2",
                         type: "text",
                         name: "Username",
                         defaultValue: user.username,
-                        onChange: (e)=>handleUpdate(e)
+                        onChange: (e)=>setTempUser({
+                                ...tempUser,
+                                name: e.target.value
+                            })
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 10,
+                        lineNumber: 28,
                         columnNumber: 17
-                    }, this)
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/update-user.jsx",
-                lineNumber: 8,
+                lineNumber: 26,
                 columnNumber: 13
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: [
                     "Password:",
@@ -48325,15 +48346,15 @@ function UpdateUser(user, handleSubmit, handleUpdate) {
                         onChange: (e)=>handleUpdate(e)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 19,
+                        lineNumber: 38,
                         columnNumber: 17
-                    }, this)
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/update-user.jsx",
-                lineNumber: 17,
+                lineNumber: 36,
                 columnNumber: 13
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: [
                     "Email:",
@@ -48344,15 +48365,15 @@ function UpdateUser(user, handleSubmit, handleUpdate) {
                         onChange: (e)=>handleUpdate(e)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 28,
+                        lineNumber: 47,
                         columnNumber: 17
-                    }, this)
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/update-user.jsx",
-                lineNumber: 26,
+                lineNumber: 45,
                 columnNumber: 13
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 children: [
                     "Birthday:",
@@ -48362,33 +48383,33 @@ function UpdateUser(user, handleSubmit, handleUpdate) {
                         onChange: (e)=>handleUpdate(e)
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 37,
+                        lineNumber: 56,
                         columnNumber: 17
-                    }, this)
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/update-user.jsx",
-                lineNumber: 35,
+                lineNumber: 54,
                 columnNumber: 13
-            }, this),
+            }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 variant: "primary",
                 type: "submit",
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/profile-view/update-user.jsx",
-                lineNumber: 43,
+                lineNumber: 62,
                 columnNumber: 13
-            }, this)
+            }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/profile-view/update-user.jsx",
-        lineNumber: 7,
+        lineNumber: 25,
         columnNumber: 9
-    }, this);
-}
+    }, undefined);
+};
+_s(UpdateUser, "EFUppQZd0X/kk9hyxRVb9glQNpk=");
 _c = UpdateUser;
-exports.default = UpdateUser;
 var _c;
 $RefreshReg$(_c, "UpdateUser");
 

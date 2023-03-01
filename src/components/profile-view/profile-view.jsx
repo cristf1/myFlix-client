@@ -14,13 +14,6 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
     const storedToken = localStorage.getItem('token');
     const [token] = useState(storedToken ? storedToken : null);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    }
-
-    const handleUpdate = (event) => {
-        event.preventDefault();
-    }
 
 
     let favoriteMovies = movies
@@ -67,7 +60,7 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
                 </div>
                 <div>
                     <h5> Edit Account </h5>
-                    <UpdateUser user={user} handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
+                    <UpdateUser user={user} />
 
                 </div>
 
