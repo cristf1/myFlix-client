@@ -26,7 +26,7 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
         }
         fetch('https://cristine-myflix.herokuapp.com/users/${user.Username}', {
             method: 'PUT',
-            headers: { Authorization: 'Bearer ${token}' },
+            headers: { Authorization: 'Bearer ${storedToken}' },
         })
             .then((response) => response.json())
             .then((userData) => {
@@ -60,7 +60,7 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
                 </div>
                 <div>
                     <h5> Edit Account </h5>
-                    <UpdateUser user={user} />
+                    <UpdateUser user={user} token={token} />
 
                 </div>
 
@@ -70,6 +70,7 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
                 <div>
                     <Link to={'/'}>
                         <Button
+                            className="m-2 block px-2"
                             onClick={onBackClick}
                             style={{ cursor: 'pointer' }}>
                             Back</Button>

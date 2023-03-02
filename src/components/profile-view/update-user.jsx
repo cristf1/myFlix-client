@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 
 function UpdateUser({ user }) {
@@ -8,6 +9,7 @@ function UpdateUser({ user }) {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
+
     const [token] = useState(storedToken ? storedToken : null);
 
 
@@ -19,9 +21,11 @@ function UpdateUser({ user }) {
             Email: email,
             Birthday: birthday,
         };
-        console.log(data)
+
+        console.log(data);
+
         fetch(
-            `https://cristine-myflix.herokuapp.com/users/${user.username}`,
+            `https://cristine-myflix.herokuapp.com/users/${user.Username}`,
             {
                 method: 'PUT',
                 body: JSON.stringify(data),
@@ -32,9 +36,12 @@ function UpdateUser({ user }) {
             }
         )
             .then((response) => {
+                console.log(user);
                 if (response.ok) {
                     alert('Changes saved');
+                    window.location.reload();
                     setUsername(username);
+                    console.log('user:', user)
                 } else {
                     alert('Something went wrong');
                 }
@@ -43,51 +50,72 @@ function UpdateUser({ user }) {
                 console.log(error);
             });
     };
+    const handleDelete = () => {
 
-
+        fetch('https://cristine-myflix.herokuapp.com/users/${user.Username}', {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        }).then((response) => {
+            if (response.ok) {
+                alert("Account successfully deleted");
+                localStorage.clear();
+                window.location.reload();
+            } else {
+                alert("Something went wrong");
+            }
+        });
+    };
 
 
     return (
-
-        <form onSubmit={(e) => handleSubmit(e)}>
-            <label>
-                Username:
-                <input
-                    class="m-2 block px-2"
-                    type='text'
-                    name='Username'
-                    defaultValue={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </label>
-            <label>
-                Password:
-                <input
-                    type='password'
-                    name='Password'
-                    defaultValue={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </label>
-            <label>
-                Email:
-                <input
-                    type='email'
-                    name='email'
-                    defaultValue={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </label>
-            <label>
-                Birthday:
-                <input
-                    type='date'
-                    defaultValue={birthday}
-                    onChange={(e) => setBirthday(e.target.value)}
-                />
-            </label>
-            <button variant='primary' type='submit'>Submit</button>
-        </form>
+        <>
+            <Form onSubmit={(e) => handleSubmit(e)}>
+                <Form.Group>
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control
+                        className="m-2 block px-2"
+                        type='text'
+                        name='Username'
+                        defaultValue={user.Username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Password: </Form.Label>
+                    <Form.Control
+                        className="m-2 block px-2"
+                        type='password'
+                        name='Password'
+                        defaultValue={user.Password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Email:</Form.Label>
+                    <Form.Control
+                        className="m-2 block px-2"
+                        type='email'
+                        name='email'
+                        defaultValue={user.Email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Birthday:</Form.Label>
+                    <Form.Control
+                        className="m-2 block px-2"
+                        type='date'
+                        defaultValue={user.Birthday}
+                        onChange={(e) => setBirthday(e.target.value)}
+                    />
+                </Form.Group>
+                <Button variant='primary' type='submit' className="m-2 block px-2">Save Changes</Button>
+            </Form>
+            <Button onClick={() => handleDelete(user._id)} type="submit" variant="danger" className="m-2 block px-2"> Delete Account</Button>
+        </>
     );
 }
 export default UpdateUser
