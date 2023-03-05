@@ -59,7 +59,7 @@ function UpdateUser({ user }) {
             });
     };
 
-    const handleDelete = (event) => {
+    const handleDelete = () => {
         fetch(
             `https://cristine-myflix.herokuapp.com/users/${user.Username}`,
             {

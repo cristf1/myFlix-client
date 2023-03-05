@@ -2,7 +2,32 @@ import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 
-export const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie, user, token }) => {
+
+  const handleFavorite = () => {
+    console.log(user);
+    fetch(
+      `https://cristine-myflix.herokuapp.com/users/${user.Username}/movies/${movie.id}`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          alert(movie.title + ' has been successfully added!');
+          window.location.reload();
+          console.log(user.FavoriteMovies)
+        } else {
+          alert("Something went wrong");
+        }
+      });
+  };
+
+
   return (
     <div>
       <Card className={'h-100'} variant='link'>
@@ -13,7 +38,7 @@ export const MovieCard = ({ movie }) => {
             <Card.Text>{movie.director}</Card.Text>
           </Card.Body>
         </Link >
-        <Button variant='light' type='submit' >Favorite</Button>
+        <Button onClick={() => handleFavorite(movie.id)} variant='light' type='submit' >Favorite</Button>
       </Card>
     </div>
 
