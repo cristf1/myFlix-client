@@ -3,22 +3,23 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import './profile-view.scss';
-import { Button, Span } from 'react-bootstrap';
-import Row from 'react-bootstrap/Row';
+import { Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap/Row';
 import UserInfo from './user-info';
-import FavoriteMovies from './favorite-movies';
+//import FavoriteMovies from './favorite-movies';
 import UpdateUser from './update-user';
+
+
 
 export const ProfileView = ({ user, movies, onBackClick }) => {
     //const storedUser = JSON.parse(localStorage.getItem('user'));
     const storedToken = localStorage.getItem('token');
     const [token] = useState(storedToken ? storedToken : null);
 
+    let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
+    console.log(favoriteMovies);
 
 
-    let favoriteMovies = movies
-        ? movies.filter((m) => user.FavoriteMovies.includes(m._id))
-        : [];
 
     useEffect(() => {
         if (!token) {
@@ -37,6 +38,7 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
                         birthday: userAPIData.Birthday,
                         email: userAPIData.Email,
                         id: userAPIData._id,
+                        favoriteMovies: userAPIData._FavoriteMovies,
                     };
                 });
                 setUser(usersFromApi);
@@ -47,6 +49,8 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
 
 
     return (
+
+
         <Row className='justify-content-md-center'>
 
             <div>
@@ -56,12 +60,24 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
                 </div>
                 <div>
                     <UserInfo name={user.Username} email={user.Email} birthday={user.Birthday} />
-                    <FavoriteMovies favoriteMovies={favoriteMovies} />
+
+                </div>
+                <div>
+                    {favoriteMovies.length === 0 ? (
+                        <Col> The list is empty!</Col>
+                    ) : (
+                        favoriteMovies.map((movie) => (
+                            <Col className='mb=4' key={movie.id} md={3}>
+                                <MovieCard favoriteMovies={movie} />
+                            </Col>
+                        )
+                        )
+                    )
+                    }
                 </div>
                 <div>
                     <h5> Edit Account </h5>
                     <UpdateUser user={user} token={token} />
-
                 </div>
 
 
@@ -76,7 +92,8 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
                             Back</Button>
                     </Link>
                 </div>
-            </div>
+            </div >
         </Row >
+
     );
 };

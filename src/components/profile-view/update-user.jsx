@@ -1,20 +1,25 @@
 import React from 'react';
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import FavoriteMovies from './favorite-movies';
 
 
 function UpdateUser({ user }) {
     const storedToken = localStorage.getItem('token');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [birthday, setBirthday] = useState('');
+    const [username, setUsername] = useState(user.Username);
+    const [password, setPassword] = useState(user.Password);
+    const [email, setEmail] = useState(user.Email);
+    const [birthday, setBirthday] = useState(user.Birthday);
+
 
     const [token] = useState(storedToken ? storedToken : null);
 
 
+
     const handleSubmit = (event) => {
         event.preventDefault();
+
+
         const data = {
             Username: username,
             Password: password,
@@ -37,11 +42,14 @@ function UpdateUser({ user }) {
         )
             .then((response) => {
                 console.log(user);
+                console.log(data)
+                console.log(email)
                 if (response.ok) {
-                    alert('Changes saved');
+                    alert('You will be logged out.');
+                    localStorage.clear();
                     window.location.reload();
-                    setUsername(username);
-                    console.log('user:', user)
+
+
                 } else {
                     alert('Something went wrong');
                 }
@@ -50,23 +58,27 @@ function UpdateUser({ user }) {
                 console.log(error);
             });
     };
-    const handleDelete = () => {
 
-        fetch('https://cristine-myflix.herokuapp.com/users/${user.Username}', {
-            method: 'DELETE',
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json"
+    const handleDelete = (event) => {
+        fetch(
+            `https://cristine-myflix.herokuapp.com/users/${user.Username}`,
+            {
+                method: 'DELETE',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                },
             }
-        }).then((response) => {
-            if (response.ok) {
-                alert("Account successfully deleted");
-                localStorage.clear();
-                window.location.reload();
-            } else {
-                alert("Something went wrong");
-            }
-        });
+        )
+            .then((response) => {
+                if (response.ok) {
+                    alert("Account successfully deleted");
+                    localStorage.clear();
+                    window.location.reload();
+                } else {
+                    alert("Something went wrong");
+                }
+            });
     };
 
 
@@ -79,7 +91,7 @@ function UpdateUser({ user }) {
                         className="m-2 block px-2"
                         type='text'
                         name='Username'
-                        defaultValue={user.Username}
+                        defaultValue={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </Form.Group>
@@ -89,7 +101,7 @@ function UpdateUser({ user }) {
                         className="m-2 block px-2"
                         type='password'
                         name='Password'
-                        defaultValue={user.Password}
+                        defaultValue={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </Form.Group>
@@ -99,7 +111,7 @@ function UpdateUser({ user }) {
                         className="m-2 block px-2"
                         type='email'
                         name='email'
-                        defaultValue={user.Email}
+                        defaultValue={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </Form.Group>
@@ -108,13 +120,13 @@ function UpdateUser({ user }) {
                     <Form.Control
                         className="m-2 block px-2"
                         type='date'
-                        defaultValue={user.Birthday}
+                        defaultValue={birthday}
                         onChange={(e) => setBirthday(e.target.value)}
                     />
                 </Form.Group>
                 <Button variant='primary' type='submit' className="m-2 block px-2">Save Changes</Button>
             </Form>
-            <Button onClick={() => handleDelete(user._id)} type="submit" variant="danger" className="m-2 block px-2"> Delete Account</Button>
+            <Button onClick={() => handleDelete(user.Username)} type="submit" variant="danger" className="m-2 block px-2"> Delete Account</Button>
         </>
     );
 }
