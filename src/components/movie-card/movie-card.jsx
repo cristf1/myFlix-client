@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 export const MovieCard = ({ movie, user, token }) => {
   //const [favorite, setFavorite]=useState(true);
+  console.log(movie);
   const handleFavorite = () => {
     console.log(user);
     fetch(
@@ -62,11 +63,9 @@ export const MovieCard = ({ movie, user, token }) => {
             <Card.Text>{movie.director}</Card.Text>
           </Card.Body>
         </Link >
-        if({user.FavoriteMovies.includes(movie.id)}){
-          <Button onClick={() => handleFavorite(movie.id)} variant='light' type='submit' >Favorite</Button>
-        } else{
-          <Button onClick={() => handleUnfavorite(movie.id)} variant='danger' type='submit' >Unfavorite</Button>
-        }
+        <Button onClick={() => handleFavorite(movie.id)} variant='light' type='submit' >Favorite</Button>
+        <Button onClick={() => handleUnfavorite(movie.id)} variant='danger' type='submit' >Unfavorite</Button>
+
 
 
       </Card>

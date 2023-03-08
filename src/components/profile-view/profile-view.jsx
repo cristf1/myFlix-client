@@ -1,13 +1,14 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import './profile-view.scss';
-import { Button } from 'react-bootstrap';
-import { Row, Col } from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import UserInfo from './user-info';
 //import FavoriteMovies from './favorite-movies';
 import UpdateUser from './update-user';
+import { MovieCard } from '../movie-card/movie-card';
 
 
 
@@ -16,8 +17,12 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
     const storedToken = localStorage.getItem('token');
     const [token] = useState(storedToken ? storedToken : null);
 
-    let favoriteMovies = movies.filter(m => user.FavoriteMovies.includes(m._id));
-    console.log(favoriteMovies);
+    let favoriteMovies = movies.filter((m) =>
+        user.FavoriteMovies.includes(m.id)
+    );
+    // console.log(movies)
+    //console.log(user.FavoriteMovies)
+    // console.log(favoriteMovies);
 
 
 
@@ -48,6 +53,8 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
 
 
 
+
+
     return (
 
 
@@ -55,7 +62,7 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
 
             <div>
                 <div>
-                    <h2>Profile Information:</h2>
+                    <h5>Profile Information:</h5>
 
                 </div>
                 <div>
@@ -63,12 +70,13 @@ export const ProfileView = ({ user, movies, onBackClick }) => {
 
                 </div>
                 <div>
+                    <h5>Favorite Movies:</h5>
                     {favoriteMovies.length === 0 ? (
                         <Col> The list is empty!</Col>
                     ) : (
-                        favoriteMovies.map((movie) => (
-                            <Col className='mb=4' key={movie.id} md={3}>
-                                <MovieCard favoriteMovies={movie} />
+                        favoriteMovies.map((favoriteMovie) => (
+                            <Col className='mb=4' key={favoriteMovie.id} md={3}>
+                                <MovieCard movie={favoriteMovie} />
                             </Col>
                         )
                         )

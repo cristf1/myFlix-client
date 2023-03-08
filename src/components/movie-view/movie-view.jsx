@@ -6,10 +6,13 @@ import Row from 'react-bootstrap/Row'
 
 
 export const MovieView = ({ movies, onBackClick }) => {
-  const { movieId } = useParams();
+  const movieId = useParams();
+  console.log(movieId)
+  console.log(movies)
 
+  const movie = movies.find((m) => m.id === movieId);
 
-  const movie = movies.find((b) => b.id === movieId)
+  console.log(movie)
 
   return (
     <Row className='justify-content-md-center'>
