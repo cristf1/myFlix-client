@@ -7,10 +7,20 @@ import Row from 'react-bootstrap/Row'
 
 export const MovieView = ({ movies, onBackClick }) => {
   const movieId = useParams();
+  const movie1 = movies[1];
+
   console.log(movieId)
   console.log(movies)
+  console.log(typeof movieId)
+  console.log(movie1.id)
+  console.log(typeof movie1.id)
 
-  const movie = movies.find((m) => m.id === movieId);
+  const strMovieId = JSON.parse(JSON.stringify(movieId))
+  console.log(strMovieId.movieId)
+
+  const movie = movies.find((m) => m.id === (strMovieId.movieId))
+  //((m) => m.id === JSON.stringify(movieId));
+  //const favoriteMovies = movies.filter((m) =>user.FavoriteMovies.includes(m.id)
 
   console.log(movie)
 

@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 export const MovieCard = ({ movie, user, token }) => {
   //const [favorite, setFavorite]=useState(true);
   console.log(movie);
+  console.log(user);
+
   const handleFavorite = () => {
     console.log(user);
     fetch(
@@ -55,16 +57,16 @@ export const MovieCard = ({ movie, user, token }) => {
 
   return (
     <div>
-      <Card className={'h-100'} variant='link'>
+      <Card variant='link'>
         <Link to={`/movies/${(movie.id)}`}>
           <Card.Img variant='top' src={movie.image} />
           <Card.Body>
-            <Card.Title>{movie.title}</Card.Title>
-            <Card.Text>{movie.director}</Card.Text>
+            <Card.Title className='text-center'>{movie.title}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted text-center" >{movie.director}</Card.Subtitle>
           </Card.Body>
         </Link >
-        <Button onClick={() => handleFavorite(movie.id)} variant='light' type='submit' >Favorite</Button>
-        <Button onClick={() => handleUnfavorite(movie.id)} variant='danger' type='submit' >Unfavorite</Button>
+        <Button onClick={() => handleFavorite(movie.id)} variant='light' type='submit' shape='rounded-pill' >Favorite</Button>
+        <Button onClick={() => handleUnfavorite(movie.id)} variant='danger' type='submit' shape='rounded-pill' >Unfavorite</Button>
 
 
 

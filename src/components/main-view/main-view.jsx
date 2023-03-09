@@ -9,6 +9,7 @@ import { ProfileView } from '../profile-view/profile-view';
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 
@@ -20,6 +21,8 @@ export const MainView = () => {
     //const [selectedMovie, setSelectedMovie] = useState(null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     //fetch data from API and update default state with movieData
+
+
     useEffect(() => {
         if (!token) {
             return;
@@ -54,106 +57,110 @@ export const MainView = () => {
                 onLoggedOut={() => {
                     setUser(null);
                 }} />
-            <Row className='justify-content-md-center'>
-                <Routes>
-                    <Route
-                        path='/signup'
-                        element={
-                            <>
-                                {user ? (
-                                    <Navigate to='/' />
-                                ) : (
-                                    <Col md={5}>
-                                        <SignupView />
-                                    </Col>
-                                )}
-                            </>
-                        }
-                    >
-                    </Route>
-                    <Route
-                        path='/login'
-                        element={
-                            <>
-                                {user ? (
-                                    <Navigate to='/' />
-                                ) : (
-                                    <Col md={5}>
-                                        <LoginView onLoggedIn={(user, token) => {
-                                            setUser(user);
-                                            setToken(token);
-                                        }} />
-                                    </Col>
-                                )}
-                            </>
-                        }
-                    >
-                    </Route>
-                    <Route
-                        path='/movies/:movieId'
-                        element={
-                            <>
-                                {!user ? (
-                                    <Navigate to='/login' replace />
-                                ) : movies.length === 0 ? (
-                                    <Col> The list is empty!</Col>
-                                ) : (
-                                    <Col md={8} style={{ border: '1px solid black' }} >
-                                        <MovieView movies={movies} user={user} />
-                                    </Col>
-                                )
-                                }
+            <Container>
+                <Row className='justify-content-md-center g-4'>
+                    <Routes>
+                        <Route
+                            path='/signup'
+                            element={
+                                <>
+                                    {user ? (
+                                        <Navigate to='/' />
+                                    ) : (
+                                        <Col md={5}>
+                                            <SignupView />
+                                        </Col>
+                                    )}
+                                </>
+                            }
+                        >
+                        </Route>
+                        <Route
+                            path='/login'
+                            element={
+                                <>
+                                    {user ? (
+                                        <Navigate to='/' />
+                                    ) : (
+                                        <Col md={5}>
+                                            <LoginView onLoggedIn={(user, token) => {
+                                                setUser(user);
+                                                setToken(token);
+                                            }} />
+                                        </Col>
+                                    )}
+                                </>
+                            }
+                        >
+                        </Route>
+                        <Route
+                            path='/movies/:movieId'
+                            element={
+                                <>
+                                    {!user ? (
+                                        <Navigate to='/login' replace />
+                                    ) : movies.length === 0 ? (
+                                        <Col> The list is empty!</Col>
+                                    ) : (
+                                        <Col md={8} style={{ border: '1px solid black' }} >
+                                            <MovieView movies={movies} user={user} />
+                                        </Col>
+                                    )
+                                    }
 
-                            </>
-                        }
-                    >
-                    </Route>
-                    <Route
-                        path='/users/:username'
-                        element={
-                            <>
-                                {!user ? (
-                                    <Navigate to='/login' replace />
-                                ) : movies.length === 0 ? (
-                                    <Col> The list is empty!</Col>
-                                ) : (
-                                    <Col md={8} style={{ border: '1px solid black' }} >
-                                        <ProfileView user={user} movies={movies} />
-                                    </Col>
-                                )
-                                }
-                            </>
-                        }
-                    >
-                    </Route>
-                    <Route
-                        path='/'
-                        element={
-                            <>
-                                {!user ? (
-                                    <Navigate to='/login' replace />
-                                ) : movies.length === 0 ? (
-                                    <Col> The list is empty!</Col>
-                                ) : (
-                                    <>
-                                        {movies.map((movie) => (
-                                            <Col className='mb=4' key={movie.id} md={3}>
-                                                <MovieCard movie={movie} user={user} token={token} />
+                                </>
+                            }
+                        >
+                        </Route>
+                        <Route
+                            path='/users/:username'
+                            element={
+                                <>
+                                    {!user ? (
+                                        <Navigate to='/login' replace />
+                                    ) : movies.length === 0 ? (
+                                        <Col> The list is empty!</Col>
+                                    ) : (
+                                        <Col >
+                                            <ProfileView user={user} movies={movies} token={token} />
+                                        </Col>
+                                    )
+                                    }
+                                </>
+                            }
+                        >
+                        </Route>
+                        <Route
+                            path='/'
+                            element={
+                                <>
+                                    {!user ? (
+                                        <Navigate to='/login' replace />
+                                    ) : movies.length === 0 ? (
+                                        <Col> The list is empty!</Col>
+                                    ) : (
+                                        <>
+                                            {movies.map((movie) => (
+                                                <Col className='mb=4' key={movie.id} xs={12}
+                                                    sm={6}
+                                                    md={4}
+                                                    lg={3}>
+                                                    <MovieCard movie={movie} user={user} token={token} />
+                                                </Col>
+                                            )
+                                            )}
+                                            <Button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
+                                        </>
+                                    )
+                                    }
+                                </>
+                            }
+                        />
 
-                                            </Col>
-                                        )
-                                        )}
-                                        <Button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>Logout</Button>
-                                    </>
-                                )
-                                }
-                            </>
-                        }
-                    />
 
-
-                </Routes>
-            </Row>
+                    </Routes>
+                </Row>
+            </Container>
         </BrowserRouter >
 
     )
