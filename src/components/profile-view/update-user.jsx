@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import FavoriteMovies from './favorite-movies';
+
 
 
 function UpdateUser({ user }) {
@@ -19,7 +19,6 @@ function UpdateUser({ user }) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-
         const data = {
             Username: username,
             Password: password,
@@ -27,32 +26,21 @@ function UpdateUser({ user }) {
             Birthday: birthday,
         };
 
-        console.log(data);
+        // console.log(data);
 
-        fetch(
-            `https://cristine-myflix.herokuapp.com/users/${user.Username}`,
-            {
-                method: 'PUT',
-                body: JSON.stringify(data),
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-            }
-        )
-            .then((response) => {
-                console.log(user);
+        fetch(`https://cristine-myflix.herokuapp.com/users/${user.Username}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.setItem('user', JSON.stringify(data));
+                window.open(`/users/${username}`, '_self');
                 console.log(data)
-                console.log(email)
-                if (response.ok) {
-                    alert('You will be logged out.');
-                    localStorage.clear();
-                    window.location.reload();
-
-
-                } else {
-                    alert('Something went wrong');
-                }
             })
             .catch((error) => {
                 console.log(error);
@@ -70,14 +58,13 @@ function UpdateUser({ user }) {
                 },
             }
         )
-            .then((response) => {
-                if (response.ok) {
-                    alert("Account successfully deleted");
-                    localStorage.clear();
-                    window.location.reload();
-                } else {
-                    alert("Something went wrong");
-                }
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.clear();
+                console.log(user);
+            })
+            .catch((error) => {
+                console.log(error);
             });
     };
 
@@ -101,7 +88,7 @@ function UpdateUser({ user }) {
                         className="m-2 block px-2"
                         type='password'
                         name='Password'
-                        defaultValue={password}
+
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </Form.Group>

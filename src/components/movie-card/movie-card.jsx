@@ -1,13 +1,15 @@
-import useState from 'react'
+import useState from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 
 export const MovieCard = ({ movie, user, token }) => {
   //const [favorite, setFavorite]=useState(true);
   console.log(movie);
   console.log(user);
+
+  const username = user.username;
 
   const handleFavorite = () => {
     console.log(user);
@@ -24,7 +26,10 @@ export const MovieCard = ({ movie, user, token }) => {
       .then((response) => {
         if (response.ok) {
           alert(movie.title + ' has been successfully added to Favorites List!');
-          window.location.reload();
+          //window.location.reload();
+          //localStorage.setItem('user', JSON.stringify(data));
+          window.open(`/users/${username}`, '_self');
+
           console.log(user.FavoriteMovies)
         } else {
           alert("Something went wrong");
@@ -57,7 +62,7 @@ export const MovieCard = ({ movie, user, token }) => {
 
   return (
     <div>
-      <Card variant='link'>
+      <Card variant='link' className='h-100 w-100 d-flex justify-content-between'>
         <Link to={`/movies/${(movie.id)}`}>
           <Card.Img variant='top' src={movie.image} />
           <Card.Body>
@@ -94,4 +99,3 @@ MovieCard.propTypes = {
 
   onMovieClick: PropTypes.func.isRequired
 };
-

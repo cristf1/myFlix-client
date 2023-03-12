@@ -68,7 +68,7 @@ export const LoginView = ({ onLoggedIn }) => {
             <Form.Group controlId='loginFormPassword'>
                 <Form.Label>Password:</Form.Label>
                 <Form.Control
-                    type='passowrd'
+                    type='password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required />

@@ -27384,7 +27384,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","../navigation-bar/navigation-bar":"bsPVM","../profile-view/profile-view":"2vVqf","react-bootstrap/Button":"aPzUt","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Container":"hEdsw"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","../navigation-bar/navigation-bar":"bsPVM","../profile-view/profile-view":"2vVqf","react-bootstrap/Button":"aPzUt","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-bootstrap/Container":"hEdsw","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27405,6 +27405,7 @@ const MovieCard = ({ movie , user , token  })=>{
     //const [favorite, setFavorite]=useState(true);
     console.log(movie);
     console.log(user);
+    const username = user.username;
     const handleFavorite = ()=>{
         console.log(user);
         fetch(`https://cristine-myflix.herokuapp.com/users/${user.Username}/movies/${movie.id}`, {
@@ -27416,7 +27417,9 @@ const MovieCard = ({ movie , user , token  })=>{
         }).then((response)=>{
             if (response.ok) {
                 alert(movie.title + " has been successfully added to Favorites List!");
-                window.location.reload();
+                //window.location.reload();
+                //localStorage.setItem('user', JSON.stringify(data));
+                window.open(`/users/${username}`, "_self");
                 console.log(user.FavoriteMovies);
             } else alert("Something went wrong");
         });
@@ -27440,6 +27443,7 @@ const MovieCard = ({ movie , user , token  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
             variant: "link",
+            className: "h-100 w-100 d-flex justify-content-between",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                     to: `/movies/${movie.id}`,
@@ -27449,7 +27453,7 @@ const MovieCard = ({ movie , user , token  })=>{
                             src: movie.image
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 62,
+                            lineNumber: 67,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -27459,7 +27463,7 @@ const MovieCard = ({ movie , user , token  })=>{
                                     children: movie.title
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 64,
+                                    lineNumber: 69,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Subtitle, {
@@ -27467,19 +27471,19 @@ const MovieCard = ({ movie , user , token  })=>{
                                     children: movie.director
                                 }, void 0, false, {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 65,
+                                    lineNumber: 70,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 63,
+                            lineNumber: 68,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 61,
+                    lineNumber: 66,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -27490,7 +27494,7 @@ const MovieCard = ({ movie , user , token  })=>{
                     children: "Favorite"
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 68,
+                    lineNumber: 73,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -27501,18 +27505,18 @@ const MovieCard = ({ movie , user , token  })=>{
                     children: "Unfavorite"
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 69,
+                    lineNumber: 74,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 60,
+            lineNumber: 65,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 59,
+        lineNumber: 64,
         columnNumber: 5
     }, undefined);
 };
@@ -46444,7 +46448,7 @@ const LoginView = ({ onLoggedIn  })=>{
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                        type: "passowrd",
+                        type: "password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value),
                         required: true
@@ -46995,7 +46999,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./profile-view.scss":"eyKYH","react-bootstrap/Button":"aPzUt","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","./user-info":"66eot","./update-user":"2SBwg","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Container":"hEdsw"}],"eyKYH":[function() {},{}],"66eot":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./profile-view.scss":"eyKYH","react-bootstrap/Button":"aPzUt","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-bootstrap/Container":"hEdsw","./user-info":"66eot","./update-user":"2SBwg","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eyKYH":[function() {},{}],"66eot":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1330 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -47067,8 +47071,6 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
-var _favoriteMovies = require("./favorite-movies");
-var _favoriteMoviesDefault = parcelHelpers.interopDefault(_favoriteMovies);
 var _s = $RefreshSig$();
 function UpdateUser({ user  }) {
     _s();
@@ -47086,7 +47088,7 @@ function UpdateUser({ user  }) {
             Email: email,
             Birthday: birthday
         };
-        console.log(data);
+        // console.log(data);
         fetch(`https://cristine-myflix.herokuapp.com/users/${user.Username}`, {
             method: "PUT",
             body: JSON.stringify(data),
@@ -47094,15 +47096,10 @@ function UpdateUser({ user  }) {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json"
             }
-        }).then((response)=>{
-            console.log(user);
+        }).then((response)=>response.json()).then((data)=>{
+            localStorage.setItem("user", JSON.stringify(data));
+            window.open(`/users/${username}`, "_self");
             console.log(data);
-            console.log(email);
-            if (response.ok) {
-                alert("You will be logged out.");
-                localStorage.clear();
-                window.location.reload();
-            } else alert("Something went wrong");
         }).catch((error)=>{
             console.log(error);
         });
@@ -47114,12 +47111,11 @@ function UpdateUser({ user  }) {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json"
             }
-        }).then((response)=>{
-            if (response.ok) {
-                alert("Account successfully deleted");
-                localStorage.clear();
-                window.location.reload();
-            } else alert("Something went wrong");
+        }).then((response)=>response.json()).then((data)=>{
+            localStorage.clear();
+            console.log(user);
+        }).catch((error)=>{
+            console.log(error);
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -47133,7 +47129,7 @@ function UpdateUser({ user  }) {
                                 children: "Username:"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 89,
+                                lineNumber: 76,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47144,13 +47140,13 @@ function UpdateUser({ user  }) {
                                 onChange: (e)=>setUsername(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 90,
+                                lineNumber: 77,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 88,
+                        lineNumber: 75,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47159,24 +47155,23 @@ function UpdateUser({ user  }) {
                                 children: "Password: "
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 99,
+                                lineNumber: 86,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                 className: "m-2 block px-2",
                                 type: "password",
                                 name: "Password",
-                                defaultValue: password,
                                 onChange: (e)=>setPassword(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 100,
+                                lineNumber: 87,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 98,
+                        lineNumber: 85,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47185,7 +47180,7 @@ function UpdateUser({ user  }) {
                                 children: "Email:"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 109,
+                                lineNumber: 96,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47196,13 +47191,13 @@ function UpdateUser({ user  }) {
                                 onChange: (e)=>setEmail(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 110,
+                                lineNumber: 97,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 108,
+                        lineNumber: 95,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -47211,7 +47206,7 @@ function UpdateUser({ user  }) {
                                 children: "Birthday:"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 119,
+                                lineNumber: 106,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -47221,13 +47216,13 @@ function UpdateUser({ user  }) {
                                 onChange: (e)=>setBirthday(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/update-user.jsx",
-                                lineNumber: 120,
+                                lineNumber: 107,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 118,
+                        lineNumber: 105,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -47237,13 +47232,13 @@ function UpdateUser({ user  }) {
                         children: "Save Changes"
                     }, void 0, false, {
                         fileName: "src/components/profile-view/update-user.jsx",
-                        lineNumber: 127,
+                        lineNumber: 114,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/profile-view/update-user.jsx",
-                lineNumber: 87,
+                lineNumber: 74,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -47254,7 +47249,7 @@ function UpdateUser({ user  }) {
                 children: " Delete Account"
             }, void 0, false, {
                 fileName: "src/components/profile-view/update-user.jsx",
-                lineNumber: 129,
+                lineNumber: 116,
                 columnNumber: 13
             }, this)
         ]
@@ -47271,42 +47266,6 @@ $RefreshReg$(_c, "UpdateUser");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","./favorite-movies":"dTTQH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dTTQH":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$8767 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8767.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _reactRouterDom = require("react-router-dom");
-var _reactBootstrap = require("react-bootstrap");
-function FavoriteMovies({ favoriteMovies  }) {
-    console.log(favoriteMovies);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-        children: "Favorite Movies"
-    }, void 0, false, {
-        fileName: "src/components/profile-view/favorite-movies.jsx",
-        lineNumber: 12,
-        columnNumber: 9
-    }, this);
-}
-_c = FavoriteMovies;
-exports.default = FavoriteMovies;
-var _c;
-$RefreshReg$(_c, "FavoriteMovies");
-
-  $parcel$ReactRefreshHelpers$8767.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-router-dom":"9xmpe","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["1xC6H","7a1Sg","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["1xC6H","7a1Sg","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
