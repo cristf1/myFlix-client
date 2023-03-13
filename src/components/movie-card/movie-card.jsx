@@ -23,19 +23,30 @@ export const MovieCard = ({ movie, user, token }) => {
         },
       }
     )
-      .then((response) => {
-        if (response.ok) {
-          alert(movie.title + ' has been successfully added to Favorites List!');
-          //window.location.reload();
-          //localStorage.setItem('user', JSON.stringify(data));
-          window.open(`/users/${username}`, '_self');
-
-          console.log(user.FavoriteMovies)
-        } else {
-          alert("Something went wrong");
-        }
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem('user', JSON.stringify(data));
+        window.location.reload();
+        //window.open(`/users/${username}`, '_self');
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
+  /* .then((response) => {
+     if (response.ok) {
+       alert(movie.title + ' has been successfully added to Favorites List!');
+       //window.location.reload();
+       localStorage.setItem('user', JSON.stringify(data));
+       window.open(`/users/${username}`, '_self');
+
+       console.log(user.FavoriteMovies)
+     } else {
+       alert("Something went wrong");
+     }
+   });
+}; */
   const handleUnfavorite = () => {
     console.log(user);
     fetch(
@@ -48,14 +59,16 @@ export const MovieCard = ({ movie, user, token }) => {
         },
       }
     )
-      .then((response) => {
-        if (response.ok) {
-          alert(movie.title + ' has been successfully deleted from Favorites List!');
-          window.location.reload();
-          console.log(user.FavoriteMovies)
-        } else {
-          alert("Something went wrong");
-        }
+      .then((response) => response.json())
+      .then((data) => {
+        alert(movie.title + ' has been successfully deleted from Favorites List!');
+        localStorage.setItem('user', JSON.stringify(data));
+        window.open(`/users/${username}`, '_self');
+        console.log(data)
+      })
+      //console.log(user.FavoriteMovies)
+      .catch((error) => {
+        console.log(error);
       });
   };
 
