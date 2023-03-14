@@ -2972,7 +2972,7 @@ $RefreshReg$(_c, "MyFlixApplication");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Container":"hEdsw","bootstrap/dist/css/bootstrap.min.css":"i5LP7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-dom/client":"lOjBx","./components/main-view/main-view":"4gflv","react-bootstrap/Container":"hEdsw","bootstrap/dist/css/bootstrap.min.css":"i5LP7","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("84dca124deff16db");
 
@@ -27357,7 +27357,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","react-bootstrap/Button":"aPzUt","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27439,7 +27439,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap":"3AD9A"}],"7wKI2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7wKI2":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28186,170 +28186,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"ec1ad72a1460b5fa":"jZTZJ","6edcb9f212c71791":"fqKuf"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("ea6b4f33f0c3fdf8");
-function debounce(func, delay) {
-    {
-        let timeout = undefined;
-        let lastTime = 0;
-        return function(args) {
-            // Call immediately if last call was more than the delay ago.
-            // Otherwise, set a timeout. This means the first call is fast
-            // (for the common case of a single update), and subsequent updates
-            // are batched.
-            let now = Date.now();
-            if (now - lastTime > delay) {
-                lastTime = now;
-                func.call(null, args);
-            } else {
-                clearTimeout(timeout);
-                timeout = setTimeout(function() {
-                    timeout = undefined;
-                    lastTime = Date.now();
-                    func.call(null, args);
-                }, delay);
-            }
-        };
-    }
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30); // Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-} // When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        Refresh.register(exportValue, id + " %exports% " + key);
-    }
-}
-
-},{"ea6b4f33f0c3fdf8":"786KC"}],"3AD9A":[function(require,module,exports) {
+},{"ec1ad72a1460b5fa":"jZTZJ","6edcb9f212c71791":"fqKuf"}],"3AD9A":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>(0, _accordionDefault.default));
@@ -28788,7 +28625,37 @@ function _extends() {
 }
 exports.default = _extends;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adHgr":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"adHgr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -29222,7 +29089,8 @@ function createBootstrapComponent(Component, opts) {
     if (typeof opts === "string") opts = {
         prefix: opts
     };
-    const isClassy = Component.prototype && Component.prototype.isReactComponent; // If it's a functional component make sure we don't break it with a ref
+    const isClassy = Component.prototype && Component.prototype.isReactComponent;
+    // If it's a functional component make sure we don't break it with a ref
     const { prefix , forwardRefAs =isClassy ? "ref" : "innerRef"  } = opts;
     const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
         props[forwardRefAs] = ref;
@@ -30097,11 +29965,17 @@ var _accordionItemContext = require("./AccordionItemContext");
 var _accordionItemContextDefault = parcelHelpers.interopDefault(_accordionItemContext);
 var _jsxRuntime = require("react/jsx-runtime");
 const AccordionBody = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div" , bsPrefix , className , ...props }, ref)=>{
+as: Component = "div" , bsPrefix , className , onEnter , onEntering , onEntered , onExit , onExiting , onExited , ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "accordion-body");
     const { eventKey  } = (0, _react.useContext)((0, _accordionItemContextDefault.default));
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _accordionCollapseDefault.default), {
         eventKey: eventKey,
+        onEnter: onEnter,
+        onEntering: onEntering,
+        onEntered: onEntered,
+        onExit: onExit,
+        onExiting: onExiting,
+        onExited: onExited,
         children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
             ref: ref,
             ...props,
@@ -30244,7 +30118,8 @@ const Collapse = /*#__PURE__*/ (0, _reactDefault.default).forwardRef(({ onEnter 
                 className: (0, _classnamesDefault.default)(className, children.props.className, collapseStyles[state], computedDimension === "width" && "collapse-horizontal")
             })
     });
-}); // @ts-ignore
+});
+// @ts-ignore
 // @ts-ignore
 Collapse.defaultProps = defaultProps;
 exports.default = Collapse;
@@ -31098,7 +30973,8 @@ function createChainedFunction(...funcs) {
         if (acc === null) return f;
         return function chainedFunction(...args) {
             // @ts-ignore
-            acc.apply(this, args); // @ts-ignore
+            acc.apply(this, args);
+            // @ts-ignore
             f.apply(this, args);
         };
     }, null);
@@ -31303,7 +31179,7 @@ as: Component = "button" , bsPrefix , className , onClick , ...props }, ref)=>{
         ref: ref,
         onClick: accordionOnClick,
         ...props,
-        "aria-expanded": eventKey === activeEventKey,
+        "aria-expanded": Array.isArray(activeEventKey) ? activeEventKey.includes(eventKey) : eventKey === activeEventKey,
         className: (0, _classnamesDefault.default)(className, bsPrefix, !(0, _accordionContext.isAccordionItemSelected)(activeEventKey, eventKey) && "collapsed")
     });
 });
@@ -32367,7 +32243,8 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const CardImg = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , variant , as: Component = "img" , ...props }, ref)=>{
+const CardImg = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+({ bsPrefix , className , variant , as: Component = "img" , ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "card-img");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ref: ref,
@@ -32511,7 +32388,8 @@ const Carousel = /*#__PURE__*/ _react.forwardRef((uncontrolledProps, ref)=>{
         if (nextDirectionRef.current) nextDirectionRef.current = null;
     });
     let numChildren = 0;
-    let activeChildInterval; // Iterate to grab all of the children's interval values
+    let activeChildInterval;
+    // Iterate to grab all of the children's interval values
     // (and count them, too)
     (0, _elementChildren.forEach)(children, (child, index)=>{
         ++numChildren;
@@ -32533,7 +32411,8 @@ const Carousel = /*#__PURE__*/ _react.forwardRef((uncontrolledProps, ref)=>{
         onSelect,
         wrap,
         numChildren
-    ]); // This is used in the setInterval, so it should not invalidate.
+    ]);
+    // This is used in the setInterval, so it should not invalidate.
     const next = (0, _useEventCallbackDefault.default)((event)=>{
         if (isSliding) return;
         let nextActiveIndex = renderedActiveIndex + 1;
@@ -32549,7 +32428,8 @@ const Carousel = /*#__PURE__*/ _react.forwardRef((uncontrolledProps, ref)=>{
             element: elementRef.current,
             prev,
             next
-        })); // This is used in the setInterval, so it should not invalidate.
+        }));
+    // This is used in the setInterval, so it should not invalidate.
     const nextWhenVisible = (0, _useEventCallbackDefault.default)(()=>{
         if (!document.hidden && isVisible(elementRef.current)) {
             if (isRTL) prev();
@@ -32976,7 +32856,8 @@ function useCol({ as , bsPrefix , className , ...props }) {
         }
     ];
 }
-const Col = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
+const Col = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+(props, ref)=>{
     const [{ className , ...colProps }, { as: Component = "div" , bsPrefix , spans  }] = useCol(props);
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...colProps,
@@ -33030,7 +32911,8 @@ const DropdownItemText = (0, _createWithBsPrefixDefault.default)("dropdown-item-
 const defaultProps = {
     navbar: false,
     align: "start",
-    autoClose: true
+    autoClose: true,
+    drop: "down"
 };
 const Dropdown = /*#__PURE__*/ _react.forwardRef((pProps, ref)=>{
     const { bsPrefix , drop , show , className , align , onSelect , onToggle , focusFirstItemOnShow , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
@@ -33042,8 +32924,10 @@ const Dropdown = /*#__PURE__*/ _react.forwardRef((pProps, ref)=>{
     const isRTL = (0, _themeProvider.useIsRTL)();
     const isClosingPermitted = (source)=>{
         // autoClose=false only permits close on button click
-        if (autoClose === false) return source === "click"; // autoClose=inside doesn't permit close on rootClose
-        if (autoClose === "inside") return source !== "rootClose"; // autoClose=outside doesn't permit close on select
+        if (autoClose === false) return source === "click";
+        // autoClose=inside doesn't permit close on rootClose
+        if (autoClose === "inside") return source !== "rootClose";
+        // autoClose=outside doesn't permit close on select
         if (autoClose === "outside") return source !== "select";
         return true;
     };
@@ -33062,6 +32946,14 @@ const Dropdown = /*#__PURE__*/ _react.forwardRef((pProps, ref)=>{
         drop,
         isRTL
     ]);
+    const directionClasses = {
+        down: prefix,
+        "down-centered": `${prefix}-center`,
+        up: "dropup",
+        "up-centered": "dropup-center dropup",
+        end: "dropend",
+        start: "dropstart"
+    };
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _dropdownContextDefault.default).Provider, {
         value: contextValue,
         children: /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _dropdownDefault.default), {
@@ -33074,7 +32966,7 @@ const Dropdown = /*#__PURE__*/ _react.forwardRef((pProps, ref)=>{
             children: isInputGroup ? props.children : /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
                 ...props,
                 ref: ref,
-                className: (0, _classnamesDefault.default)(className, show && "show", (!drop || drop === "down") && prefix, drop === "up" && "dropup", drop === "end" && "dropend", drop === "start" && "dropstart")
+                className: (0, _classnamesDefault.default)(className, show && "show", directionClasses[drop])
             })
         })
     });
@@ -36290,6 +36182,8 @@ function getDropdownMenuPlacement(alignEnd, dropDirection, isRTL) {
     if (dropDirection === "up") placement = alignEnd ? topEnd : topStart;
     else if (dropDirection === "end") placement = alignEnd ? rightEnd : rightStart;
     else if (dropDirection === "start") placement = alignEnd ? leftEnd : leftStart;
+    else if (dropDirection === "down-centered") placement = "bottom";
+    else if (dropDirection === "up-centered") placement = "top";
     return placement;
 }
 const DropdownMenu = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , align , rootCloseEvent , flip , show: showProps , renderOnMount , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
@@ -36307,7 +36201,8 @@ as: Component = "div" , popperConfig , variant , ...props }, ref)=>{
             (0, _warningDefault.default)(keys.length === 1, "There should only be 1 breakpoint when passing an object to `align`");
             if (keys.length) {
                 const brkPoint = keys[0];
-                const direction = align[brkPoint]; // .dropdown-menu-end is required for responsively aligning
+                const direction = align[brkPoint];
+                // .dropdown-menu-end is required for responsively aligning
                 // left in addition to align left classes.
                 alignEnd = direction === "start";
                 alignClasses.push(`${prefix}-${brkPoint}-${direction}`);
@@ -36335,7 +36230,8 @@ as: Component = "div" , popperConfig , variant , ...props }, ref)=>{
     }, [
         show
     ]);
-    if (!hasShown && !renderOnMount && !isInputGroup) return null; // For custom components provide additional, non-DOM, props;
+    if (!hasShown && !renderOnMount && !isInputGroup) return null;
+    // For custom components provide additional, non-DOM, props;
     if (typeof Component !== "string") {
         menuProps.show = show;
         menuProps.close = ()=>toggle == null ? void 0 : toggle(false);
@@ -36354,8 +36250,7 @@ as: Component = "div" , popperConfig , variant , ...props }, ref)=>{
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...props,
         ...menuProps,
-        style: style // Bootstrap css requires this data attrib to style responsive menus.
-        ,
+        style: style,
         ...(alignClasses.length || isNavbar) && {
             "data-bs-popper": "static"
         },
@@ -36377,7 +36272,8 @@ exports.default = context;
 },{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dpn1g":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _react = require("react"); // TODO: check
+var _react = require("react");
+// TODO: check
 const context = /*#__PURE__*/ _react.createContext(null);
 context.displayName = "NavbarContext";
 exports.default = context;
@@ -36391,11 +36287,13 @@ var _react = require("react");
 var _useMergedRefs = require("@restart/hooks/useMergedRefs");
 var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
 function useWrappedRefWithWarning(ref, componentName) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const warningRef = (0, _react.useCallback)((refValue)=>{
         !(refValue == null || !refValue.isReactComponent) && (0, _invariantDefault.default)(false, `${componentName} injected a ref to a provided \`as\` component that resolved to a component instance instead of a DOM element. ` + "Use `React.forwardRef` to provide the injected ref to the class component as a prop in order to pass it directly to a DOM element");
     }, [
         componentName
-    ]); // eslint-disable-next-line react-hooks/rules-of-hooks
+    ]);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     return (0, _useMergedRefsDefault.default)(warningRef, ref);
 }
 exports.default = useWrappedRefWithWarning;
@@ -36433,18 +36331,16 @@ const alignPropType = (0, _propTypesDefault.default).oneOfType([
 },{"prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gCRNt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+var _useMergedRefs = require("@restart/hooks/useMergedRefs");
+var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
+var _dropdownContext = require("@restart/ui/DropdownContext");
+var _dropdownContextDefault = parcelHelpers.interopDefault(_dropdownContext);
+var _dropdownToggle = require("@restart/ui/DropdownToggle");
 var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
-var _dropdownToggle = require("@restart/ui/DropdownToggle");
-var _dropdownContext = require("@restart/ui/DropdownContext");
-var _dropdownContextDefault = parcelHelpers.interopDefault(_dropdownContext);
-var _useMergedRefs = require("@restart/hooks/useMergedRefs");
-var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
 var _button = require("./Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _inputGroupContext = require("./InputGroupContext");
-var _inputGroupContextDefault = parcelHelpers.interopDefault(_inputGroupContext);
 var _themeProvider = require("./ThemeProvider");
 var _useWrappedRefWithWarning = require("./useWrappedRefWithWarning");
 var _useWrappedRefWithWarningDefault = parcelHelpers.interopDefault(_useWrappedRefWithWarning);
@@ -36453,13 +36349,13 @@ const DropdownToggle = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , split , cla
 as: Component = (0, _buttonDefault.default) , ...props }, ref)=>{
     const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "dropdown-toggle");
     const dropdownContext = (0, _react.useContext)((0, _dropdownContextDefault.default));
-    const isInputGroup = (0, _react.useContext)((0, _inputGroupContextDefault.default));
     if (childBsPrefix !== undefined) props.bsPrefix = childBsPrefix;
     const [toggleProps] = (0, _dropdownToggle.useDropdownToggle)();
-    toggleProps.ref = (0, _useMergedRefsDefault.default)(toggleProps.ref, (0, _useWrappedRefWithWarningDefault.default)(ref, "DropdownToggle")); // This intentionally forwards size and variant (if set) to the
+    toggleProps.ref = (0, _useMergedRefsDefault.default)(toggleProps.ref, (0, _useWrappedRefWithWarningDefault.default)(ref, "DropdownToggle"));
+    // This intentionally forwards size and variant (if set) to the
     // underlying component, to allow it to render size and style variants.
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        className: (0, _classnamesDefault.default)(className, prefix, split && `${prefix}-split`, !!isInputGroup && (dropdownContext == null ? void 0 : dropdownContext.show) && "show"),
+        className: (0, _classnamesDefault.default)(className, prefix, split && `${prefix}-split`, (dropdownContext == null ? void 0 : dropdownContext.show) && "show"),
         ...toggleProps,
         ...props
     });
@@ -36467,7 +36363,7 @@ as: Component = (0, _buttonDefault.default) , ...props }, ref)=>{
 DropdownToggle.displayName = "DropdownToggle";
 exports.default = DropdownToggle;
 
-},{"classnames":"jocGM","react":"21dqq","@restart/ui/DropdownToggle":"8iWIY","@restart/ui/DropdownContext":"dX4vI","@restart/hooks/useMergedRefs":"6hhuo","./Button":"aPzUt","./InputGroupContext":"eWDkO","./ThemeProvider":"dVixI","./useWrappedRefWithWarning":"a7ejw","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5sMVB":[function(require,module,exports) {
+},{"@restart/hooks/useMergedRefs":"6hhuo","@restart/ui/DropdownContext":"dX4vI","@restart/ui/DropdownToggle":"8iWIY","classnames":"jocGM","react":"21dqq","./Button":"aPzUt","./ThemeProvider":"dVixI","./useWrappedRefWithWarning":"a7ejw","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5sMVB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -36704,7 +36600,8 @@ const propTypes = {
     /** Display feedback as a tooltip. */ tooltip: (0, _propTypesDefault.default).bool,
     as: (0, _propTypesDefault.default).elementType
 };
-const Feedback = /*#__PURE__*/ _react.forwardRef(({ as: Component = "div" , className , type ="valid" , tooltip =false , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+const Feedback = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+({ as: Component = "div" , className , type ="valid" , tooltip =false , ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...props,
         ref: ref,
         className: (0, _classnamesDefault.default)(className, `${type}-${tooltip ? "tooltip" : "feedback"}`)
@@ -36741,7 +36638,8 @@ exports.default = FormCheckInput;
 },{"classnames":"jocGM","react":"21dqq","./FormContext":"gjvSt","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gjvSt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _react = require("react"); // TODO
+var _react = require("react");
+// TODO
 const FormContext = /*#__PURE__*/ _react.createContext({});
 exports.default = FormContext;
 
@@ -36944,7 +36842,8 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
-const FormText = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , as: Component = "small" , muted , ...props }, ref)=>{
+const FormText = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+({ bsPrefix , className , as: Component = "small" , muted , ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "form-text");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
         ...props,
@@ -37159,7 +37058,8 @@ const InputGroupRadio = (props)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)(InputGroupTe
  * @property {InputGroupCheckbox} Checkbox
  */ const InputGroup = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , size , hasValidation , className , // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 as: Component = "div" , ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "input-group"); // Intentionally an empty object. Used in detecting if a dropdown
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "input-group");
+    // Intentionally an empty object. Used in detecting if a dropdown
     // exists under an input group.
     const contextValue = (0, _react.useMemo)(()=>({}), []);
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _inputGroupContextDefault.default).Provider, {
@@ -37477,7 +37377,8 @@ const ListGroupItem = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , active , dis
     if (disabled && props.tabIndex === undefined) {
         props.tabIndex = -1;
         props["aria-disabled"] = true;
-    } // eslint-disable-next-line no-nested-ternary
+    }
+    // eslint-disable-next-line no-nested-ternary
     const Component = as || (action ? props.href ? "a" : "button" : "div");
     (0, _warningDefault.default)(as || !(!action && props.href), "`action=false` and `href` should not be used together.");
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
@@ -37595,8 +37496,9 @@ function BackdropTransition(props) {
     (0, _useWillUnmountDefault.default)(()=>{
         (0, _removeEventListenerDefault.default)(window, "resize", handleWindowResize);
         removeStaticModalAnimationRef.current == null || removeStaticModalAnimationRef.current();
-    }); // We prevent the modal from closing during a drag by detecting where the
-    // the click originates from. If it starts in the modal and then ends outside
+    });
+    // We prevent the modal from closing during a drag by detecting where the
+    // click originates from. If it starts in the modal and then ends outside
     // don't close.
     const handleDialogMouseDown = ()=>{
         waitingForMouseUpRef.current = true;
@@ -37627,12 +37529,13 @@ function BackdropTransition(props) {
         onHide == null || onHide();
     };
     const handleEscapeKeyDown = (e)=>{
-        if (!keyboard && backdrop === "static") {
-            // Call preventDefault to stop modal from closing in restart ui,
-            // then play our animation.
+        if (keyboard) onEscapeKeyDown == null || onEscapeKeyDown(e);
+        else {
+            // Call preventDefault to stop modal from closing in @restart/ui.
             e.preventDefault();
+            if (backdrop === "static") // Play static modal animation.
             handleStaticModalAnimation();
-        } else if (keyboard && onEscapeKeyDown) onEscapeKeyDown(e);
+        }
     };
     const handleEnter = (node, isAppearing)=>{
         if (node) updateDialogStyle(node);
@@ -37643,12 +37546,14 @@ function BackdropTransition(props) {
         onExit == null || onExit(node);
     };
     const handleEntering = (node, isAppearing)=>{
-        onEntering == null || onEntering(node, isAppearing); // FIXME: This should work even when animation is disabled.
+        onEntering == null || onEntering(node, isAppearing);
+        // FIXME: This should work even when animation is disabled.
         (0, _addEventListenerDefault.default)(window, "resize", handleWindowResize);
     };
     const handleExited = (node)=>{
         if (node) node.style.display = ""; // RHL removes it sometimes
-        onExited == null || onExited(node); // FIXME: This should work even when animation is disabled.
+        onExited == null || onExited(node);
+        // FIXME: This should work even when animation is disabled.
         (0, _removeEventListenerDefault.default)(window, "resize", handleWindowResize);
     };
     const renderBackdrop = (0, _react.useCallback)((backdropProps)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
@@ -37662,7 +37567,8 @@ function BackdropTransition(props) {
     const baseModalStyle = {
         ...style,
         ...modalStyle
-    }; // If `display` is not set to block, autoFocus inside the modal fails
+    };
+    // If `display` is not set to block, autoFocus inside the modal fails
     // https://github.com/react-bootstrap/react-bootstrap/issues/5102
     baseModalStyle.display = "block";
     const renderDialog = (dialogProps)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
@@ -38164,7 +38070,8 @@ const Selector = {
 };
 class BootstrapModalManager extends (0, _modalManagerDefault.default) {
     adjustAndStore(prop, element, adjust) {
-        const actual = element.style[prop]; // TODO: DOMStringMap and CSSStyleDeclaration aren't strictly compatible
+        const actual = element.style[prop];
+        // TODO: DOMStringMap and CSSStyleDeclaration aren't strictly compatible
         // @ts-ignore
         element.dataset[prop] = actual;
         (0, _cssDefault.default)(element, {
@@ -38587,7 +38494,8 @@ const Navbar = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
         collapseOnSelect,
         expanded,
         onToggle
-    ]); // will result in some false positives but that seems better
+    ]);
+    // will result in some false positives but that seems better
     // than false negatives. strict `undefined` check allows explicit
     // "nulling" of the role if the user really doesn't want one
     if (controlledProps.role === undefined && Component !== "nav") controlledProps.role = "navigation";
@@ -39168,8 +39076,6 @@ var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _overlay = require("@restart/ui/Overlay");
 var _overlayDefault = parcelHelpers.interopDefault(_overlay);
-var _useCallbackRef = require("@restart/hooks/useCallbackRef");
-var _useCallbackRefDefault = parcelHelpers.interopDefault(_useCallbackRef);
 var _useEventCallback = require("@restart/hooks/useEventCallback");
 var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
 var _useIsomorphicEffect = require("@restart/hooks/useIsomorphicEffect");
@@ -39197,7 +39103,7 @@ function wrapRefs(props, arrowProps) {
 }
 const Overlay = /*#__PURE__*/ _react.forwardRef(({ children: overlay , transition , popperConfig ={} , ...outerProps }, outerRef)=>{
     const popperRef = (0, _react.useRef)({});
-    const [firstRenderedState, setFirstRenderedState] = (0, _useCallbackRefDefault.default)();
+    const [firstRenderedState, setFirstRenderedState] = (0, _react.useState)(null);
     const [ref, modifiers] = (0, _useOverlayOffsetDefault.default)(outerProps.offset);
     const mergedRef = (0, _useMergedRefsDefault.default)(outerRef, ref);
     const actualTransition = transition === true ? (0, _fadeDefault.default) : transition || undefined;
@@ -39210,6 +39116,11 @@ const Overlay = /*#__PURE__*/ _react.forwardRef(({ children: overlay , transitio
     }, [
         firstRenderedState
     ]);
+    (0, _react.useEffect)(()=>{
+        if (!outerProps.show) setFirstRenderedState(null);
+    }, [
+        outerProps.show
+    ]);
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _overlayDefault.default), {
         ...outerProps,
         ref: mergedRef,
@@ -39221,14 +39132,17 @@ const Overlay = /*#__PURE__*/ _react.forwardRef(({ children: overlay , transitio
         transition: actualTransition,
         children: (overlayProps, { arrowProps , popper: popperObj , show  })=>{
             var _popperObj$state, _popperObj$state$modi;
-            wrapRefs(overlayProps, arrowProps); // Need to get placement from popper object, handling case when overlay is flipped using 'flip' prop
+            wrapRefs(overlayProps, arrowProps);
+            // Need to get placement from popper object, handling case when overlay is flipped using 'flip' prop
             const updatedPlacement = popperObj == null ? void 0 : popperObj.placement;
             const popper = Object.assign(popperRef.current, {
                 state: popperObj == null ? void 0 : popperObj.state,
                 scheduleUpdate: popperObj == null ? void 0 : popperObj.update,
                 placement: updatedPlacement,
-                outOfBoundaries: (popperObj == null ? void 0 : (_popperObj$state = popperObj.state) == null ? void 0 : (_popperObj$state$modi = _popperObj$state.modifiersData.hide) == null ? void 0 : _popperObj$state$modi.isReferenceHidden) || false
+                outOfBoundaries: (popperObj == null ? void 0 : (_popperObj$state = popperObj.state) == null ? void 0 : (_popperObj$state$modi = _popperObj$state.modifiersData.hide) == null ? void 0 : _popperObj$state$modi.isReferenceHidden) || false,
+                strategy: popperConfig.strategy
             });
+            const hasDoneInitialMeasure = !!firstRenderedState;
             if (typeof overlay === "function") return overlay({
                 ...overlayProps,
                 placement: updatedPlacement,
@@ -39237,13 +39151,15 @@ const Overlay = /*#__PURE__*/ _react.forwardRef(({ children: overlay , transitio
                     className: "show"
                 },
                 popper,
-                arrowProps
+                arrowProps,
+                hasDoneInitialMeasure
             });
             return /*#__PURE__*/ _react.cloneElement(overlay, {
                 ...overlayProps,
                 placement: updatedPlacement,
                 arrowProps,
                 popper,
+                hasDoneInitialMeasure,
                 className: (0, _classnamesDefault.default)(overlay.props.className, !transition && show && "show"),
                 style: {
                     ...overlay.props.style,
@@ -39257,7 +39173,7 @@ Overlay.displayName = "Overlay";
 Overlay.defaultProps = defaultProps;
 exports.default = Overlay;
 
-},{"react":"21dqq","classnames":"jocGM","@restart/ui/Overlay":"Ivi01","@restart/hooks/useCallbackRef":"82p6M","@restart/hooks/useEventCallback":"7ONdq","@restart/hooks/useIsomorphicEffect":"e8blq","@restart/hooks/useMergedRefs":"6hhuo","./useOverlayOffset":"iHgTL","./Fade":"aH18S","./safeFindDOMNode":"XsXw9","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Ivi01":[function(require,module,exports) {
+},{"react":"21dqq","classnames":"jocGM","@restart/ui/Overlay":"Ivi01","@restart/hooks/useEventCallback":"7ONdq","@restart/hooks/useIsomorphicEffect":"e8blq","@restart/hooks/useMergedRefs":"6hhuo","./useOverlayOffset":"iHgTL","./Fade":"aH18S","./safeFindDOMNode":"XsXw9","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Ivi01":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -39406,7 +39322,7 @@ var _react = require("react");
 var _hasClass = require("dom-helpers/hasClass");
 var _hasClassDefault = parcelHelpers.interopDefault(_hasClass);
 var _themeProvider = require("./ThemeProvider");
-var _popover = require("./Popover"); // This is meant for internal use.
+var _popover = require("./Popover");
 var _popoverDefault = parcelHelpers.interopDefault(_popover);
 function useOverlayOffset(customOffset) {
     const overlayRef = (0, _react.useRef)(null);
@@ -39447,19 +39363,26 @@ var _popoverHeaderDefault = parcelHelpers.interopDefault(_popoverHeader);
 var _popoverBody = require("./PopoverBody");
 var _popoverBodyDefault = parcelHelpers.interopDefault(_popoverBody);
 var _helpers = require("./helpers");
+var _getInitialPopperStyles = require("./getInitialPopperStyles");
+var _getInitialPopperStylesDefault = parcelHelpers.interopDefault(_getInitialPopperStyles);
 var _jsxRuntime = require("react/jsx-runtime");
 const defaultProps = {
     placement: "right"
 };
-const Popover = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , placement , className , style , children , body , arrowProps , popper: _ , show: _1 , ...props }, ref)=>{
+const Popover = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , placement , className , style , children , body , arrowProps , hasDoneInitialMeasure , popper , show , ...props }, ref)=>{
     const decoratedBsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "popover");
     const isRTL = (0, _themeProvider.useIsRTL)();
     const [primaryPlacement] = (placement == null ? void 0 : placement.split("-")) || [];
     const bsDirection = (0, _helpers.getOverlayDirection)(primaryPlacement, isRTL);
+    let computedStyle = style;
+    if (show && !hasDoneInitialMeasure) computedStyle = {
+        ...style,
+        ...(0, _getInitialPopperStylesDefault.default)(popper == null ? void 0 : popper.strategy)
+    };
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
         ref: ref,
         role: "tooltip",
-        style: style,
+        style: computedStyle,
         "x-placement": primaryPlacement,
         className: (0, _classnamesDefault.default)(className, decoratedBsPrefix, primaryPlacement && `bs-popover-${bsDirection}`),
         ...props,
@@ -39486,7 +39409,7 @@ exports.default = Object.assign(Popover, {
     ]
 });
 
-},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","./PopoverHeader":"1rLXn","./PopoverBody":"amJTZ","./helpers":"gotcT","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1rLXn":[function(require,module,exports) {
+},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","./PopoverHeader":"1rLXn","./PopoverBody":"amJTZ","./helpers":"gotcT","./getInitialPopperStyles":"c8j3Q","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1rLXn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _createWithBsPrefix = require("./createWithBsPrefix");
@@ -39503,8 +39426,8 @@ exports.default = (0, _createWithBsPrefixDefault.default)("popover-body");
 },{"./createWithBsPrefix":"itt7e","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gotcT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "BsPrefixComponent", ()=>BsPrefixComponent) // Need to use this instead of typeof Component to get proper type checking.
-;
+parcelHelpers.export(exports, "BsPrefixComponent", ()=>BsPrefixComponent);
+// Need to use this instead of typeof Component to get proper type checking.
 parcelHelpers.export(exports, "getOverlayDirection", ()=>getOverlayDirection);
 var _react = require("react");
 class BsPrefixComponent extends _react.Component {
@@ -39516,7 +39439,21 @@ function getOverlayDirection(placement, isRTL) {
     return bsDirection;
 }
 
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"acOnV":[function(require,module,exports) {
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c8j3Q":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function getInitialPopperStyles(position = "absolute") {
+    return {
+        position,
+        top: "0",
+        left: "0",
+        opacity: "0",
+        pointerEvents: "none"
+    };
+}
+exports.default = getInitialPopperStyles;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"acOnV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _contains = require("dom-helpers/contains");
@@ -39539,11 +39476,13 @@ function normalizeDelay(delay) {
         show: delay,
         hide: delay
     };
-} // Simple implementation of mouseEnter and mouseLeave.
+}
+// Simple implementation of mouseEnter and mouseLeave.
 // React's built version is broken: https://github.com/facebook/react/issues/4251
 // for cases when the trigger is disabled and mouseOut/Over can cause flicker
 // moving from one child element to another.
-function handleMouseOverOut(handler, args, relatedNative) {
+function handleMouseOverOut(// eslint-disable-next-line @typescript-eslint/no-shadow
+handler, args, relatedNative) {
     const [e] = args;
     const target = e.currentTarget;
     const related = e.relatedTarget || e.nativeEvent[relatedNative];
@@ -39930,7 +39869,7 @@ const defaultProps = {
     aspectRatio: "1x1"
 };
 function toPercent(num) {
-    if (num <= 0 || num > 100) return "100%";
+    if (num <= 0) return "100%";
     if (num < 1) return `${num * 100}%`;
     return `${num}%`;
 }
@@ -40138,10 +40077,8 @@ const Stack = /*#__PURE__*/ _react.forwardRef(({ as: Component = "div" , bsPrefi
         ...props,
         ref: ref,
         className: (0, _classnamesDefault.default)(className, bsPrefix, ...(0, _createUtilityClassesDefault.default)({
-            gap,
-            breakpoints,
-            minBreakpoint
-        }))
+            gap
+        }, breakpoints, minBreakpoint))
     });
 });
 Stack.displayName = "Stack";
@@ -40217,7 +40154,7 @@ var _jsxRuntime = require("react/jsx-runtime");
    */ tabAttrs: (0, _propTypesDefault.default).object
 };
 const Tab = ()=>{
-    throw new Error("ReactBootstrap: The `Tab` component is not meant to be rendered! It's an abstract component that is only valid as a direct Child of the `Tabs` Component. For custom tabs components use TabPane and TabsContainer directly"); // Needed otherwise docs error out.
+    throw new Error("ReactBootstrap: The `Tab` component is not meant to be rendered! It's an abstract component that is only valid as a direct Child of the `Tabs` Component. For custom tabs components use TabPane and TabsContainer directly");
 };
 Tab.propTypes = propTypes;
 exports.default = Object.assign(Tab, {
@@ -40473,7 +40410,8 @@ const TabPane = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , transition , ...pr
         ...props,
         transition: (0, _getTabTransitionComponentDefault.default)(transition)
     });
-    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "tab-pane"); // We provide an empty the TabContext so `<Nav>`s in `<TabPanel>`s don't
+    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "tab-pane");
+    // We provide an empty the TabContext so `<Nav>`s in `<TabPanel>`s don't
     // conflict with the top level one.
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _tabContextDefault.default).Provider, {
         value: null,
@@ -40638,7 +40576,8 @@ var _toastContext = require("./ToastContext");
 var _toastContextDefault = parcelHelpers.interopDefault(_toastContext);
 var _jsxRuntime = require("react/jsx-runtime");
 const Toast = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , transition: Transition = (0, _toastFadeDefault.default) , show =true , animation =true , delay =5000 , autohide =false , onClose , bg , ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "toast"); // We use refs for these, because we don't want to restart the autohide
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "toast");
+    // We use refs for these, because we don't want to restart the autohide
     // timer in case these values change.
     const delayRef = (0, _react.useRef)(delay);
     const onCloseRef = (0, _react.useRef)(onClose);
@@ -40916,18 +40855,25 @@ var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
 var _helpers = require("./helpers");
+var _getInitialPopperStyles = require("./getInitialPopperStyles");
+var _getInitialPopperStylesDefault = parcelHelpers.interopDefault(_getInitialPopperStyles);
 var _jsxRuntime = require("react/jsx-runtime");
 const defaultProps = {
     placement: "right"
 };
-const Tooltip = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , placement , className , style , children , arrowProps , popper: _ , show: _2 , ...props }, ref)=>{
+const Tooltip = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , placement , className , style , children , arrowProps , hasDoneInitialMeasure , popper , show , ...props }, ref)=>{
     bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "tooltip");
     const isRTL = (0, _themeProvider.useIsRTL)();
     const [primaryPlacement] = (placement == null ? void 0 : placement.split("-")) || [];
     const bsDirection = (0, _helpers.getOverlayDirection)(primaryPlacement, isRTL);
+    let computedStyle = style;
+    if (show && !hasDoneInitialMeasure) computedStyle = {
+        ...style,
+        ...(0, _getInitialPopperStylesDefault.default)(popper == null ? void 0 : popper.strategy)
+    };
     return /*#__PURE__*/ (0, _jsxRuntime.jsxs)("div", {
         ref: ref,
-        style: style,
+        style: computedStyle,
         role: "tooltip",
         "x-placement": primaryPlacement,
         className: (0, _classnamesDefault.default)(className, bsPrefix, `bs-tooltip-${bsDirection}`),
@@ -40948,7 +40894,140 @@ Tooltip.defaultProps = defaultProps;
 Tooltip.displayName = "Tooltip";
 exports.default = Tooltip;
 
-},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","./helpers":"gotcT","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ggaUx":[function(require,module,exports) {
+},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","./helpers":"gotcT","./getInitialPopperStyles":"c8j3Q","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("ea6b4f33f0c3fdf8");
+function debounce(func, delay) {
+    {
+        let timeout = undefined;
+        let lastTime = 0;
+        return function(args) {
+            // Call immediately if last call was more than the delay ago.
+            // Otherwise, set a timeout. This means the first call is fast
+            // (for the common case of a single update), and subsequent updates
+            // are batched.
+            let now = Date.now();
+            if (now - lastTime > delay) {
+                lastTime = now;
+                func.call(null, args);
+            } else {
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    timeout = undefined;
+                    lastTime = Date.now();
+                    func.call(null, args);
+                }, delay);
+            }
+        };
+    }
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30); // Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+} // When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        Refresh.register(exportValue, id + " %exports% " + key);
+    }
+}
+
+},{"ea6b4f33f0c3fdf8":"786KC"}],"ggaUx":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41108,7 +41187,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./movie-view.scss":"jnlR5","react-bootstrap":"3AD9A","react-bootstrap/Row":"cMC39"}],"jnlR5":[function() {},{}],"9YtA0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./movie-view.scss":"jnlR5","react-bootstrap":"3AD9A","react-bootstrap/Row":"cMC39","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jnlR5":[function() {},{}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41238,7 +41317,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","./login-view.scss":"e57ax"}],"e57ax":[function() {},{}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","./login-view.scss":"e57ax","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"e57ax":[function() {},{}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41418,6 +41497,6 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","./signup-view.scss":"6Z19M"}],"6Z19M":[function() {},{}],"lJZlQ":[function() {},{}],"i5LP7":[function() {},{}]},["1xC6H","7a1Sg","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","./signup-view.scss":"6Z19M"}],"6Z19M":[function() {},{}],"i5LP7":[function() {},{}],"lJZlQ":[function() {},{}]},["1xC6H","7a1Sg","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
