@@ -1,15 +1,13 @@
 
-import { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import './signup-view.scss';
+import { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
 export const SignupView = () => {
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const [birthday, setBirthday] = useState("");
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [birthday, setBirthday] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -21,18 +19,18 @@ export const SignupView = () => {
             Birthday: birthday
         };
 
-        fetch("http://cristine-myflix.herokuapp.com/users/", {
-            method: "POST",
+        fetch('http://cristine-myflix.herokuapp.com/users/', {
+            method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                "Content-Type": "application/json"
+                'Content-Type': 'application/json'
             }
         }).then((response) => {
             if (response.ok) {
-                alert("Signup successful");
+                alert('Signup successful');
                 window.location.reload();
             } else {
-                alert("Signup failed");
+                alert('Signup failed');
             }
         });
     };
@@ -40,44 +38,48 @@ export const SignupView = () => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="signupFormUsername">
+            <Form.Group>
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
-                    type="text"
+                    className="m-2 block px-2"
+                    type='text'
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    minLength="3"
+                    minLength='3'
                 />
             </Form.Group>
-            <Form.Group controlId="signupFormPassword">
+            <Form.Group>
                 <Form.Label>Password:</Form.Label>
                 <Form.Control
-                    type="password"
+                    className="m-2 block px-2"
+                    type='password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
             </Form.Group>
-            <Form.Group controlId="signupFormEmail">
-                <Form.Label>Email:</Form.Label>
+            <Form.Group>
+                <Form.Label> Email:</Form.Label>
                 <Form.Control
-                    type="email"
+                    className="m-2 block px-2"
+                    type='email'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
             </Form.Group>
-            <Form.Group controlId="signupFormBirthday">
+            <Form.Group>
                 <Form.Label>Birthday:</Form.Label>
                 <Form.Control
-                    type="date"
+                    className="m-2 block px-2"
+                    type='date'
                     value={birthday}
                     onChange={(e) => setBirthday(e.target.value)}
                     required
                 />
             </Form.Group>
-            <Button variant="primary" type="submit" className='mb-5'>Submit</Button>
-        </Form >
+            <Button type='submit' className="m-2 block px-2">Submit</Button>
+        </Form>
     );
 };

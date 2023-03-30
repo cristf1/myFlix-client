@@ -1,38 +1,55 @@
+import { useParams } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 import './movie-view.scss';
-import { Button } from "react-bootstrap"
+import { Button } from 'react-bootstrap'
 import Row from 'react-bootstrap/Row'
 
-export const MovieView = ({ movieData, onBackClick }) => {
+
+export const MovieView = ({ movies }) => {
+  const navigate = useNavigate();
+  const movieId = useParams();
+  console.log(movieId)
+
+  const strMovieId = JSON.parse(JSON.stringify(movieId))
+  console.log(strMovieId.movieId)
+
+  const movie = movies.find((m) => m.id === (strMovieId.movieId))
+  console.log(movie)
+
   return (
-    <Row className="justify-content-md-center">
+    <Row className='justify-content-md-center'>
       <div>
         <div>
-          <img src={movieData.image} />
+          <img src={movie.image} />
         </div>
         <div>
-          <span>Title: </span>
-          <span>{movieData.title}</span>
+          <h3>{movie.title}</h3>
         </div>
         <div>
-          <span>Director: </span>
-          <span>{movieData.director}</span>
+          <h6>Director:</h6>
+          <p>{movie.director}</p>
+        </div>
+
+        <div>
+          <h6>Genre: </h6>
+          <p>{movie.genre}</p>
+        </div>
+
+        <div>
+          <h6>Description: </h6>
+          <p>{movie.description}</p>
         </div>
         <div>
-          <span>Genre: </span>
-          <span>{movieData.genre}</span>
-        </div>
-        <div>
-          <span>Description: </span>
-          <span>{movieData.description}</span>
-        </div>
-        <div>
-          <Button
-            onClick={onBackClick}
-            //className="back-button"
-            style={{ cursor: "pointer" }}>
-            Back</Button>
+          <Link to={'/'}>
+            <Button
+              onClick={() => navigate(-1)}
+              style={{ cursor: 'pointer' }}
+              variant='secondary'>
+              Back
+            </Button>
+          </Link>
         </div>
       </div>
-    </Row>
+    </Row >
   );
 }
