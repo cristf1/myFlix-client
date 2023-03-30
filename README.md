@@ -13,14 +13,13 @@
 
 MyFlix is a movie app that allows users to access information about different movies. Users can register, update their personal information, and manage a list of their favourite movies.
 
-The client side user interface uses REST API and MongoDB database which have been [set up previously](https://github.com/ElenaUJ/MyFlix-movie-app), providing a seamless experience for users. Built with the MERN-stack (MongoDB, Express, React, Node.js), MyFlix is a full-stack web application which offers a user-friendly, responsive and efficient solution for those seeking movie information and management.
+The client side user interface uses REST API and MongoDB database to provide a seamless experience for users. Built with the MERN-stack (MongoDB, Express, React, Node.js), MyFlix is a full-stack web application which offers a user-friendly, responsive and efficient solution for those seeking movie information and management.
 
 
 ## Links
 
 - [Site URL](https://myflix-cristf1.netlify.app/)
 - [Code URL](https://github.com/cristf1/myFlix-client/)
-- [API URL](https://myflix-movie-app-elenauj.onrender.com/)
 
 
 ### Technologies Used
@@ -38,7 +37,6 @@ This project has the following dependencies:
   - "@parcel/transformer-js": "^2.7.0",
   - "@types/react": "^18.0.28",
   - "axios": "^1.1.3",
-  - "boostrap": "^2.0.0",
   - "bootstrap": "^5.2.0",
   - "cors": "^2.8.5",
   - "prop-types": "^15.8.1",
