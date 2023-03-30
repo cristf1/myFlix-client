@@ -18,16 +18,17 @@
   "homepage": "https://github.com/cristf1/myFlix-client#readme",
   "dependencies": {
     "@parcel/transformer-js": "^2.7.0",
-    "@types/react": "^18.0.21",
+    "@types/react": "^18.0.28",
     "axios": "^1.1.3",
+    "boostrap": "^2.0.0",
     "bootstrap": "^5.2.0",
     "cors": "^2.8.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.6.0",
+    "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
-    "react-router": "6.3.0",
-    "react-router-dom": "^6.3.0",
+    "react-router": "^6.8.2",
+    "react-router-dom": "^6.8.2",
     "source-map-url": "^0.4.1"
   },
   "devDependencies": {
