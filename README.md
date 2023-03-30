@@ -18,8 +18,8 @@ The client side user interface uses REST API and MongoDB database which have bee
 
 ## Links
 
-- [Live site URL](https://my-moviemate.netlify.app)
-- [Code URL](https://github.com/ElenaUJ/MovieMate-client)
+- [Site URL](https://myflix-cristf1.netlify.app/)
+- [Code URL](https://github.com/cristf1/myFlix-client/)
 - [API URL](https://myflix-movie-app-elenauj.onrender.com/)
 
 
