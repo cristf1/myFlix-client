@@ -61,6 +61,7 @@ export const LoginView = ({ onLoggedIn }) => {
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
                     type='text'
+                    className="m-2 block px-2"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required />
@@ -69,11 +70,12 @@ export const LoginView = ({ onLoggedIn }) => {
                 <Form.Label>Password:</Form.Label>
                 <Form.Control
                     type='password'
+                    className="m-2 block px-2"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required />
             </Form.Group>
-            <Button className='mb-5' variant='primary' type='submit'>Submit</Button>
+            <Button className="m-2 block px-2" variant='primary' type='submit'>Submit</Button>
         </Form>
     );
 }
